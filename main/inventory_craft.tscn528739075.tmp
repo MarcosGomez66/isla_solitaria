@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c33qgcgsgi64e"]
+
+[ext_resource type="Script" uid="uid://bu7ahge7hqkk2" path="res://inventory_craft.gd" id="1_x3lkk"]
+[ext_resource type="Texture2D" uid="uid://ckc3557i5klrc" path="res://assets/inventory_backgrounds/fondo_inv_mano.png" id="2_x3lkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3lkk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3lkk")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(540, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x3lkk")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 540.0
+offset_bottom = 360.0
+texture = ExtResource("2_x3lkk")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 26.0
+offset_right = 263.0
+offset_bottom = 350.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

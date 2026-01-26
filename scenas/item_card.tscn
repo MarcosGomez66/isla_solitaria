@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtso7rtch8qty"]
+
+[ext_resource type="Texture2D" uid="uid://cx7h38k6nuhp3" path="res://assets/inventory_backgrounds/fondo_slot.png" id="1_1r4fi"]
+[ext_resource type="Script" uid="uid://ssnjvueh4gon" path="res://scenas/item_card.gd" id="2_8ylvw"]
+[ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="2_rq48j"]
+[ext_resource type="Texture2D" uid="uid://lq1y5iowm1uf" path="res://assets/inventory_backgrounds/fondo_btn_trabajar.png" id="3_8ylvw"]
+[ext_resource type="Texture2D" uid="uid://m76c1nyyejxg" path="res://assets/inventory_backgrounds/fondo_btn_descartar.png" id="4_nbtwv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8j3gk"]
+texture = ExtResource("1_1r4fi")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8j3gk"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkmnw"]
+line_spacing = -1.0
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ylvw"]
+line_spacing = -1.0
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbtwv"]
+line_spacing = -1.0
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_do548"]
+line_spacing = -1.0
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_80arx"]
+line_spacing = -1.0
+font_size = 8
+
+[node name="ItemCard" type="Panel"]
+custom_minimum_size = Vector2(253, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8j3gk")
+script = ExtResource("2_8ylvw")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 49.0
+offset_bottom = 49.0
+expand_mode = 1
+
+[node name="Count" type="Label" parent="Icon"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_8j3gk")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Info" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(152, 48)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 1.0
+offset_right = 202.0
+offset_bottom = 49.0
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Info"]
+custom_minimum_size = Vector2(152, 12)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_jkmnw")
+
+[node name="Description" type="Label" parent="Info"]
+custom_minimum_size = Vector2(152, 36)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8ylvw")
+autowrap_mode = 2
+clip_text = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_left = 203.0
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 49.0
+theme_override_constants/separation = 0
+
+[node name="UseBtn" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+texture_normal = ExtResource("2_rq48j")
+
+[node name="Label" type="Label" parent="Buttons/UseBtn"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Usar"
+label_settings = SubResource("LabelSettings_nbtwv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="MoveBtn" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+texture_normal = ExtResource("3_8ylvw")
+
+[node name="Label" type="Label" parent="Buttons/MoveBtn"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Mover"
+label_settings = SubResource("LabelSettings_do548")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="DelBtn" type="TextureButton" parent="Buttons"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+texture_normal = ExtResource("4_nbtwv")
+
+[node name="Label" type="Label" parent="Buttons/DelBtn"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Descartar"
+label_settings = SubResource("LabelSettings_80arx")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true

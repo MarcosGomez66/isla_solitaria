@@ -1,0 +1,19 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot
+.import/
+.export/
+.godot/editor/
+.godot/imported/
+
+# Builds
+bin/
+build/
+export/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
