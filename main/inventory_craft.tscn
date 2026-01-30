@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c33qgcgsgi64e"]
+[gd_scene load_steps=15 format=3 uid="uid://c33qgcgsgi64e"]
 
 [ext_resource type="Script" uid="uid://bu7ahge7hqkk2" path="res://inventory_craft.gd" id="1_x3lkk"]
 [ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenas/item_card.tscn" id="2_vksan"]
 [ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv.png" id="3_vksan"]
 [ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_pgaex"]
+[ext_resource type="Texture2D" uid="uid://le2da0dwjup8" path="res://assets/inventory_backgrounds/add_icon.png" id="5_eafaq"]
+[ext_resource type="Texture2D" uid="uid://iwbosbyuid6k" path="res://assets/inventory_backgrounds/fondo_fuel_controller.png" id="5_luhk6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3lkk"]
 
@@ -15,9 +17,28 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vksan"]
-font_size = 8
+line_spacing = -1.0
+font_size = 9
 
 [sub_resource type="LabelSettings" id="LabelSettings_luhk6"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbofq"]
+line_spacing = -1.0
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eafaq"]
+texture = ExtResource("5_luhk6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_r3x8u"]
+line_spacing = -1.0
+font_size = 13
+font_color = Color(0.84705883, 0.56078434, 0.34117648, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eafaq"]
 font_size = 9
 
 [node name="Control" type="Control"]
@@ -137,3 +158,211 @@ offset_left = 277.0
 offset_top = 300.0
 offset_right = 317.0
 offset_bottom = 340.0
+
+[node name="FuelComponent" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(48, 57)
+layout_mode = 0
+offset_left = 294.0
+offset_top = 239.0
+offset_right = 342.0
+offset_bottom = 295.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Panel/FuelComponent"]
+custom_minimum_size = Vector2(48, 6)
+layout_mode = 2
+text = "Combustible"
+label_settings = SubResource("LabelSettings_sbofq")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="TextureButton" type="TextureButton" parent="Panel/FuelComponent"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_eafaq")
+
+[node name="ToolComponent" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(48, 57)
+layout_mode = 0
+offset_left = 465.0
+offset_top = 239.0
+offset_right = 513.0
+offset_bottom = 296.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Panel/ToolComponent"]
+custom_minimum_size = Vector2(48, 6)
+layout_mode = 2
+text = "Herramienta"
+label_settings = SubResource("LabelSettings_sbofq")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="TextureButton" type="TextureButton" parent="Panel/ToolComponent"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_eafaq")
+
+[node name="FuelPanel" type="Panel" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 90.0
+offset_right = 405.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eafaq")
+
+[node name="FuelPanelText" type="Label" parent="Panel/FuelPanel"]
+custom_minimum_size = Vector2(252, 20)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 261.0
+offset_bottom = 26.0
+text = "Selecciona el combustible"
+label_settings = SubResource("LabelSettings_r3x8u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="FuelScroll" type="ScrollContainer" parent="Panel/FuelPanel"]
+custom_minimum_size = Vector2(252, 131)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 26.0
+offset_right = 261.0
+offset_bottom = 116.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/FuelPanel/FuelScroll"]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+
+[node name="AceptButton" type="TextureButton" parent="Panel/FuelPanel"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 157.0
+offset_right = 57.0
+offset_bottom = 173.0
+texture_normal = ExtResource("4_pgaex")
+
+[node name="Label" type="Label" parent="Panel/FuelPanel/AceptButton"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Aceptar"
+label_settings = SubResource("LabelSettings_eafaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="CancelButton" type="TextureButton" parent="Panel/FuelPanel"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_left = 213.0
+offset_top = 157.0
+offset_right = 261.0
+offset_bottom = 173.0
+texture_normal = ExtResource("4_pgaex")
+
+[node name="Label" type="Label" parent="Panel/FuelPanel/CancelButton"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Cancelar"
+label_settings = SubResource("LabelSettings_eafaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="ToolPanel" type="Panel" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(270, 180)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 90.0
+offset_right = 405.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eafaq")
+
+[node name="FuelPanelText" type="Label" parent="Panel/ToolPanel"]
+custom_minimum_size = Vector2(252, 20)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 261.0
+offset_bottom = 26.0
+text = "Selecciona la herramienta"
+label_settings = SubResource("LabelSettings_r3x8u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="FuelScroll" type="ScrollContainer" parent="Panel/ToolPanel"]
+custom_minimum_size = Vector2(252, 131)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 26.0
+offset_right = 261.0
+offset_bottom = 116.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ToolPanel/FuelScroll"]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+
+[node name="AceptButton" type="TextureButton" parent="Panel/ToolPanel"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 157.0
+offset_right = 57.0
+offset_bottom = 173.0
+texture_normal = ExtResource("4_pgaex")
+
+[node name="Label" type="Label" parent="Panel/ToolPanel/AceptButton"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Aceptar"
+label_settings = SubResource("LabelSettings_eafaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="CancelButton" type="TextureButton" parent="Panel/ToolPanel"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_left = 213.0
+offset_top = 157.0
+offset_right = 261.0
+offset_bottom = 173.0
+texture_normal = ExtResource("4_pgaex")
+
+[node name="Label" type="Label" parent="Panel/ToolPanel/CancelButton"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+text = "Cancelar"
+label_settings = SubResource("LabelSettings_eafaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true

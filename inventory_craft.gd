@@ -2,9 +2,6 @@ extends Control
 
 @onready var inv_container = $Panel/InvScroll/InvContainer
 @onready var ing_container = $Panel/IngScroll/IngContainer
-@onready var craft_button = $Panel/DoneButton
-@onready var craft_button_text = $Panel/ButtonText
-@onready var out_item = $Panel/OutItem
 
 @export var item_card_scene: PackedScene
 
@@ -16,7 +13,6 @@ var max_items = 2
 var max_stack = 5
 
 #variables para la comprovacion
-var recipes = []
 
 func _ready() -> void:
 	visible = false
@@ -92,6 +88,17 @@ func refresh_ui():
 	
 	
 # manejo de receta
+@onready var craft_button = $Panel/DoneButton
+@onready var craft_button_text = $Panel/ButtonText
+@onready var out_item_container = $Panel/OutItem
+
+@onready var tool_select_button = $Panel/ToolComponent/TextureButton
+@onready var tool_panel = $Panel/ToolPanel
+@onready var tool_container = $Panel/ToolPanel/FuelScroll/VBoxContainer
+@onready var tool_acept_button = $Panel/ToolPanel/AceptButton
+@onready var tool_cancel_button = $Panel/ToolPanel/CancelButton
+
+var recipes = []
 var metadatos = ['type', 'uses', 'fuel_req', 'tool_req', 'healing', 'damage'] #metadatos que pueden tener los items
 
 # agregar cuerda para pruebas
@@ -182,8 +189,13 @@ func check_recipe():
 	if output_item:
 		fuel = fuel_contoller(output_item['out'])
 		tool = tool_contoller(output_item['out'])
-	#intento de manejo de boton dinamico
+	#intento de manejo de boton dinamico y dibujo
 	craft_button_status(fuel, tool, output_item)
+	if output_item:
+		update_out_item(output_item['out'])
+	else:
+		for i in out_item_container.get_children():
+			i.queue_free()
 	
 func compare_ing(entry: Array, recipe: Array):
 	if entry.size() != recipe.size():
@@ -199,29 +211,37 @@ func compare_ing(entry: Array, recipe: Array):
 	return true
 
 func fuel_contoller(out):
-	if out:
-		if out['meta']['fuel_req'] == 'none':
-			return 'done'
+	if out['meta']['fuel_req'] == 'none':
+		return 'done'
 	return 'missing'
 	
 func tool_contoller(out):
-	if out:
-		if out['meta']['tool_req'] == 'none':
-			return 'done'
+	if out['meta']['tool_req'] == 'none':
+		return 'done'
 	return 'missing'
 
 func craft_button_status(fuel, tool, out):
-	craft_button_text.text = 'Añadir ingredientes'
+	craft_button_text.text = '↑↑↑ \n Añadir ingredientes'
 	craft_button.disabled = true
 	if fuel != 'done' and tool != 'done' and entry_items:
-		craft_button_text.text = 'Faltan ingredientes'
+		craft_button_text.text = '↑↑↑ \n Ingredientes incorrectos'
 		craft_button.disabled = true
 	if fuel != 'done' and tool != 'done' and out:
-		craft_button_text.text = 'Añadir combustible'
+		craft_button_text.text = '←←← \n Añadir combustible'
 		craft_button.disabled = true
 	if fuel == 'done' and tool != 'done' and out:
-		craft_button_text.text = 'Añadir herramienta'
+		craft_button_text.text = '→→→ \n Añadir herramienta'
 		craft_button.disabled = true
 	if fuel == 'done' and tool == 'done' and out:
-		craft_button_text.text = 'Todo listo'
+		craft_button_text.text = '↓↓↓ \n Todo listo'
 		craft_button.disabled = false
+
+func update_out_item(item):
+	#print(item['name'])
+	
+	for i in out_item_container.get_children():
+		i.queue_free()
+	var card = item_card_scene.instantiate()
+	out_item_container.add_child(card)
+	card.set_item(item)
+	#card.move_pressed.connect(_on_move_from_entry)
