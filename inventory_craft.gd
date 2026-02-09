@@ -211,6 +211,7 @@ func compare_ing(entry: Array, recipe: Array):
 	return true
 
 func fuel_contoller(out):
+	#por el momento solo retornar el estado
 	if out['meta']['fuel_req'] == 'none':
 		return 'done'
 	return 'missing'
