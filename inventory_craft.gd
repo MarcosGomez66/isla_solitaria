@@ -23,7 +23,7 @@ func _ready() -> void:
 	define_recipes()
 	
 	add_item()
-	craft_button_status('', '')
+	craft_button_status()
 	
 	conectar_boton()
 	
@@ -104,11 +104,23 @@ func refresh_ui():
 @onready var tool_cancel_button = $Panel/ToolPanel/CancelButton
 
 @onready var craft_timer = $Panel/CraftTimer
-var current_recipe = {}
-var output_item = {}
+
+var current_recipe = null
+var output_item = null
+var current_output_item = null
 var is_crafting := false
 var craft_time := 0.0
+var fuel = 'missing'
+var tool = 'missing'
 
+enum craftState {
+	NO_ING,
+	BAD_ING,
+	MISSING_FUEL,
+	MISSING_TOOL,
+	READY,
+	CRAFTING
+}
 var recipes = []
 # algunos metadatos que puedo usar = 'type', 'uses', 'fuel_req', 'tool_req', 'healing', 'damage', craft_time
 
@@ -228,10 +240,10 @@ func conectar_boton(): #hubicar mejor despues xd
 	craft_button.pressed.connect(_on_craft_button_pressed)
 	
 func check_recipe():
-	current_recipe = {}
-	output_item = {}
-	var fuel = 'missing'
-	var tool = 'missing'
+	current_recipe = null
+	output_item = null
+	fuel = 'missing'
+	tool = 'missing'
 	for recipe in recipes:
 		var found = compare_ing(entry_items, recipe['in'])
 		if found == true:
@@ -242,7 +254,7 @@ func check_recipe():
 		fuel = fuel_contoller()
 		tool = tool_contoller()
 	#intento de manejo de boton dinamico y dibujo
-	craft_button_status(fuel, tool)
+	craft_button_status()
 	if output_item:
 		update_out_item()
 	else:
@@ -273,27 +285,28 @@ func tool_contoller():
 		return 'done'
 	return 'missing'
 
-func craft_button_status(fuel, tool):
-	if is_crafting:
-		var remaining = craft_timer.time_left
-		craft_button_text.text = 'fabricando: %.1f s' % remaining
-		if remaining == 0.0:
-			_on_craftTimer_timeout()
-	else:
-		craft_button_text.text = '↑↑↑ \n Añadir ingredientes'
-		craft_button.disabled = true
-		if fuel != 'done' and tool != 'done' and entry_items:
+func craft_button_status():
+	match get_craft_state():
+		craftState.NO_ING:
+			craft_button.disabled = true
+			craft_button_text.text = '↑↑↑ \n Añadir ingredientes'
+		craftState.BAD_ING:
+			craft_button.disabled = true
 			craft_button_text.text = '↑↑↑ \n Ingredientes incorrectos'
+		craftState.MISSING_FUEL:
 			craft_button.disabled = true
-		if fuel != 'done' and tool != 'done' and output_item:
 			craft_button_text.text = '←←← \n Añadir combustible'
+		craftState.MISSING_TOOL:
 			craft_button.disabled = true
-		if fuel == 'done' and tool != 'done' and output_item:
 			craft_button_text.text = '→→→ \n Añadir herramienta'
-			craft_button.disabled = true
-		if fuel == 'done' and tool == 'done' and output_item:
-			craft_button_text.text = '↓↓↓ \n Todo listo'
+		craftState.READY:
 			craft_button.disabled = false
+			craft_button_text.text = '↓↓↓ \n Todo listo'
+		craftState.CRAFTING:
+			var remaining = craft_timer.time_left
+			craft_button_text.text = 'fabricando: %.1f s' % remaining
+			if remaining == 0.0:
+				_on_craftTimer_timeout()
 
 func update_out_item():
 	if output_item:
@@ -311,6 +324,8 @@ func _on_craft_button_pressed():
 		return
 		
 	is_crafting = true
+	current_output_item = output_item
+	consume_ingredients()
 	craft_time = output_item['meta']['craft_time']
 	craft_timer.start(craft_time)
 	refresh_ui()
@@ -319,13 +334,13 @@ func consume_ingredients():
 	for ing in current_recipe:
 		for ing2 in entry_items:
 			if ing['name'] == ing2['name']:
-				ing['count'] -= ing2['count']
-				if ing['count'] <= 0:
+				ing2['count'] -= ing['count']
+				if ing2['count'] <= 0:
 					entry_items.erase(ing2)
 
 func _process(delta: float) -> void:
 	if is_crafting:
-		craft_button_status('done', 'done')
+		craft_button_status()
 
 func _on_craftTimer_timeout():
 	is_crafting = false
@@ -334,14 +349,25 @@ func _on_craftTimer_timeout():
 func add_out_to_inventory():
 	#buscar stack existente
 	for slot in inventory:
-		if slot['name'] == output_item['name'] and slot['count'] < max_stack and output_item['meta']['type'] not in not_stackable:
-			slot['count'] += output_item['count']
-			output_item = {}
-			consume_ingredients()
+		if slot['name'] == current_output_item['name'] and slot['count'] < max_stack and current_output_item['meta']['type'] not in not_stackable:
+			slot['count'] += current_output_item['count']
+			current_output_item = null
 			refresh_ui()
 			return
 	#crear nuevo stack
-	inventory.append(output_item)
-	output_item = {}
-	consume_ingredients()
+	inventory.append(current_output_item)
+	current_output_item = null
 	refresh_ui()
+
+func get_craft_state() -> craftState:
+	if is_crafting:
+		return craftState.CRAFTING
+	if entry_items.is_empty():
+		return craftState.NO_ING
+	if not output_item:
+		return craftState.BAD_ING
+	if fuel_contoller() == 'missing':
+		return craftState.MISSING_FUEL
+	if tool_contoller() == 'missing':
+		return craftState.MISSING_TOOL
+	return craftState.READY
