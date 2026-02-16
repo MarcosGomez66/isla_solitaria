@@ -69,7 +69,8 @@ func pick_item(object_node):
 						'name': object_node.object_name,
 						'icon': object_node.object_icon,
 						'description': object_node.object_description,
-						'count': dif
+						'count': dif,
+						'meta': object_node.meta
 					}
 					inventory.append(new_slot)
 				# actualiza el ui
@@ -86,7 +87,8 @@ func pick_item(object_node):
 			'name': object_node.object_name,
 			'icon': object_node.object_icon,
 			'description': object_node.object_description,
-			'count': object_node.quantity
+			'count': object_node.quantity,
+			'meta': object_node.meta
 		}
 		inventory.append(new_slot)
 		# actualiza el ui

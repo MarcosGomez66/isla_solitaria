@@ -12,6 +12,8 @@ var entry_items = []
 var max_items = 2
 var max_stack = 5
 
+var not_stackable = ['pole', 'pic', 'axe', 'knife', 'hammer']
+
 #variables para la comprovacion
 
 func _ready() -> void:
@@ -21,7 +23,9 @@ func _ready() -> void:
 	define_recipes()
 	
 	add_item()
-	craft_button_status('', '', '')
+	craft_button_status('', '')
+	
+	conectar_boton()
 	
 func update_inventory():
 	#Aca empieza el codigo nuevo
@@ -86,6 +90,7 @@ func refresh_ui():
 	update_entry_items()
 	check_recipe()
 	
+	update_out_item()
 	
 # manejo de receta
 @onready var craft_button = $Panel/DoneButton
@@ -98,10 +103,16 @@ func refresh_ui():
 @onready var tool_acept_button = $Panel/ToolPanel/AceptButton
 @onready var tool_cancel_button = $Panel/ToolPanel/CancelButton
 
-var recipes = []
-var metadatos = ['type', 'uses', 'fuel_req', 'tool_req', 'healing', 'damage'] #metadatos que pueden tener los items
+@onready var craft_timer = $Panel/CraftTimer
+var current_recipe = {}
+var output_item = {}
+var is_crafting := false
+var craft_time := 0.0
 
-# agregar cuerda para pruebas
+var recipes = []
+# algunos metadatos que puedo usar = 'type', 'uses', 'fuel_req', 'tool_req', 'healing', 'damage', craft_time
+
+# agregar items para pruebas
 func add_item():
 	inventory.append(
 		{
@@ -112,11 +123,13 @@ func add_item():
 			'meta': {
 					'type': 'material',
 					'fuel_req': 'none',
-					'tool_req': 'none'
+					'tool_req': 'none',
+					'craft_time': 3
 				}
 		}
 	)
-	
+
+#manejar las recetas desde un archivo .gd aparte	
 func define_recipes():
 	recipes = [
 		{ #cuerda
@@ -129,21 +142,8 @@ func define_recipes():
 				'meta': {
 					'type': 'material',
 					'fuel_req': 'none',
-					'tool_req': 'none'
-				}
-			}
-		},
-		{ #hacha improvisada
-			'in': [{'name': 'Madera', 'count': 1}, {'name': 'Piedra', 'count': 1}, {'name': 'Cuerda', 'count': 2}],
-			'out': {
-				'name': 'Hacha improvisada',
-				'count': 1,
-				'icon': preload("res://assets/inventory_icons/hacha_improvisada_icon.png"),
-				'description': 'Herramienta util para obtener madera de los arboles comunes',
-				'meta': {
-					'type': 'axe',
-					'fuel_req': 'none',
-					'tool_req': 'none'
+					'tool_req': 'none',
+					'craft_time': 3
 				}
 			}
 		},
@@ -157,7 +157,38 @@ func define_recipes():
 				'meta': {
 					'type': 'pickaxe',
 					'fuel_req': 'none',
-					'tool_req': 'none'
+					'tool_req': 'none',
+					'craft_time': 5
+				}
+			}
+		},
+		{ #hacha improvisada
+			'in': [{'name': 'Madera', 'count': 1}, {'name': 'Piedra', 'count': 1}, {'name': 'Cuerda', 'count': 2}],
+			'out': {
+				'name': 'Hacha improvisada',
+				'count': 1,
+				'icon': preload("res://assets/inventory_icons/hacha_improvisada_icon.png"),
+				'description': 'Herramienta util para obtener madera de los arboles comunes',
+				'meta': {
+					'type': 'axe',
+					'fuel_req': 'none',
+					'tool_req': 'none',
+					'craft_time': 5
+				}
+			}
+		},
+		{ #martillo improvisado
+			'in': [{'name': 'Madera', 'count': 1}, {'name': 'Piedra', 'count': 1}, {'name': 'Cuerda', 'count': 3}],
+			'out': {
+				'name': 'Martillo improvisado',
+				'count': 1,
+				'icon': preload("res://assets/inventory_icons/martillo_improvisado_icon.png"),
+				'description': 'Herramienta util para golpear la madera o el metal',
+				'meta': {
+					'type': 'hammer',
+					'fuel_req': 'none',
+					'tool_req': 'none',
+					'craft_time': 5
 				}
 			}
 		},
@@ -171,28 +202,49 @@ func define_recipes():
 				'meta': {
 					'type': 'knife',
 					'fuel_req': 'none',
-					'tool_req': 'none'
+					'tool_req': 'none',
+					'craft_time': 5
+				}
+			}
+		},
+		{ #garrote
+			'in': [{'name': 'Madera', 'count': 1}, {'name': 'Cuerda', 'count': 1}],
+			'out': {
+				'name': 'Garrote',
+				'count': 1,
+				'icon': preload("res://assets/inventory_icons/garrote_icon.png"),
+				'description': 'Arma provicional pero mejor que nada',
+				'meta': {
+					'type': 'pole',
+					'fuel_req': 'none',
+					'tool_req': 'none',
+					'craft_time': 5
 				}
 			}
 		},
 	]
 
+func conectar_boton(): #hubicar mejor despues xd
+	craft_button.pressed.connect(_on_craft_button_pressed)
+	
 func check_recipe():
-	var output_item = {}
+	current_recipe = {}
+	output_item = {}
 	var fuel = 'missing'
 	var tool = 'missing'
 	for recipe in recipes:
 		var found = compare_ing(entry_items, recipe['in'])
 		if found == true:
-			output_item = recipe
+			current_recipe = recipe['in'].duplicate(true)
+			output_item = recipe['out'].duplicate(true)
 	#intento de manejo de combustible y herramienta requeridas
 	if output_item:
-		fuel = fuel_contoller(output_item['out'])
-		tool = tool_contoller(output_item['out'])
+		fuel = fuel_contoller()
+		tool = tool_contoller()
 	#intento de manejo de boton dinamico y dibujo
-	craft_button_status(fuel, tool, output_item)
+	craft_button_status(fuel, tool)
 	if output_item:
-		update_out_item(output_item['out'])
+		update_out_item()
 	else:
 		for i in out_item_container.get_children():
 			i.queue_free()
@@ -203,46 +255,93 @@ func compare_ing(entry: Array, recipe: Array):
 	for r in recipe:
 		var found = false
 		for e in entry:
-			if e['name'] == r['name'] and e['count'] == r['count']:
+			if e['name'] == r['name'] and e['count'] >= r['count']:
 				found = true
 				break
 		if not found:
 			return false
 	return true
 
-func fuel_contoller(out):
+func fuel_contoller():
 	#por el momento solo retornar el estado
-	if out['meta']['fuel_req'] == 'none':
+	if output_item['meta']['fuel_req'] == 'none':
 		return 'done'
 	return 'missing'
 	
-func tool_contoller(out):
-	if out['meta']['tool_req'] == 'none':
+func tool_contoller():
+	if output_item['meta']['tool_req'] == 'none':
 		return 'done'
 	return 'missing'
 
-func craft_button_status(fuel, tool, out):
-	craft_button_text.text = '↑↑↑ \n Añadir ingredientes'
-	craft_button.disabled = true
-	if fuel != 'done' and tool != 'done' and entry_items:
-		craft_button_text.text = '↑↑↑ \n Ingredientes incorrectos'
+func craft_button_status(fuel, tool):
+	if is_crafting:
+		var remaining = craft_timer.time_left
+		craft_button_text.text = 'fabricando: %.1f s' % remaining
+		if remaining == 0.0:
+			_on_craftTimer_timeout()
+	else:
+		craft_button_text.text = '↑↑↑ \n Añadir ingredientes'
 		craft_button.disabled = true
-	if fuel != 'done' and tool != 'done' and out:
-		craft_button_text.text = '←←← \n Añadir combustible'
-		craft_button.disabled = true
-	if fuel == 'done' and tool != 'done' and out:
-		craft_button_text.text = '→→→ \n Añadir herramienta'
-		craft_button.disabled = true
-	if fuel == 'done' and tool == 'done' and out:
-		craft_button_text.text = '↓↓↓ \n Todo listo'
-		craft_button.disabled = false
+		if fuel != 'done' and tool != 'done' and entry_items:
+			craft_button_text.text = '↑↑↑ \n Ingredientes incorrectos'
+			craft_button.disabled = true
+		if fuel != 'done' and tool != 'done' and output_item:
+			craft_button_text.text = '←←← \n Añadir combustible'
+			craft_button.disabled = true
+		if fuel == 'done' and tool != 'done' and output_item:
+			craft_button_text.text = '→→→ \n Añadir herramienta'
+			craft_button.disabled = true
+		if fuel == 'done' and tool == 'done' and output_item:
+			craft_button_text.text = '↓↓↓ \n Todo listo'
+			craft_button.disabled = false
 
-func update_out_item(item):
-	#print(item['name'])
+func update_out_item():
+	if output_item:
+		for i in out_item_container.get_children():
+			i.queue_free()
+		var card = item_card_scene.instantiate()
+		out_item_container.add_child(card)
+		card.set_item(output_item)
+		var btn = card.get_child(2)
+		btn.visible = false
+	return
+
+func _on_craft_button_pressed():
+	if is_crafting:
+		return
+		
+	is_crafting = true
+	craft_time = output_item['meta']['craft_time']
+	craft_timer.start(craft_time)
+	refresh_ui()
+
+func consume_ingredients():
+	for ing in current_recipe:
+		for ing2 in entry_items:
+			if ing['name'] == ing2['name']:
+				ing['count'] -= ing2['count']
+				if ing['count'] <= 0:
+					entry_items.erase(ing2)
+
+func _process(delta: float) -> void:
+	if is_crafting:
+		craft_button_status('done', 'done')
+
+func _on_craftTimer_timeout():
+	is_crafting = false
+	add_out_to_inventory()
 	
-	for i in out_item_container.get_children():
-		i.queue_free()
-	var card = item_card_scene.instantiate()
-	out_item_container.add_child(card)
-	card.set_item(item)
-	#card.move_pressed.connect(_on_move_from_entry)
+func add_out_to_inventory():
+	#buscar stack existente
+	for slot in inventory:
+		if slot['name'] == output_item['name'] and slot['count'] < max_stack and output_item['meta']['type'] not in not_stackable:
+			slot['count'] += output_item['count']
+			output_item = {}
+			consume_ingredients()
+			refresh_ui()
+			return
+	#crear nuevo stack
+	inventory.append(output_item)
+	output_item = {}
+	consume_ingredients()
+	refresh_ui()

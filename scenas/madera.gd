@@ -5,6 +5,9 @@ extends Area2D
 @export var object_icon = Texture2D
 @export var object_description = 'Recurso basico de construccion, se puede recolectar directamente del suelo o talando arboles comunes'
 @export var quantity = 1
+var meta = {
+	'type': 'resourse',
+}
 
 func _ready():
 	connect("body_entered", _on_body_entered)

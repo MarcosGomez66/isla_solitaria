@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c33qgcgsgi64e"]
+[gd_scene load_steps=16 format=3 uid="uid://c33qgcgsgi64e"]
 
 [ext_resource type="Script" uid="uid://bu7ahge7hqkk2" path="res://inventory_craft.gd" id="1_x3lkk"]
 [ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenas/item_card.tscn" id="2_vksan"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_pgaex"]
 [ext_resource type="Texture2D" uid="uid://le2da0dwjup8" path="res://assets/inventory_backgrounds/add_icon.png" id="5_eafaq"]
 [ext_resource type="Texture2D" uid="uid://iwbosbyuid6k" path="res://assets/inventory_backgrounds/fondo_fuel_controller.png" id="5_luhk6"]
+[ext_resource type="Texture2D" uid="uid://cqrrmyejqcu05" path="res://assets/inventory_backgrounds/fondo_btn_disable.png" id="5_r3x8u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3lkk"]
 
@@ -151,6 +152,7 @@ offset_top = 280.0
 offset_right = 428.0
 offset_bottom = 296.0
 texture_normal = ExtResource("4_pgaex")
+texture_disabled = ExtResource("5_r3x8u")
 
 [node name="Label" type="Label" parent="Panel/DoneButton"]
 custom_minimum_size = Vector2(48, 16)
@@ -379,3 +381,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
+
+[node name="CraftTimer" type="Timer" parent="Panel"]
+one_shot = true

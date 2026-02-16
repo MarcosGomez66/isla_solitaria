@@ -60,7 +60,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Info" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(152, 48)
+custom_minimum_size = Vector2(153, 48)
 layout_mode = 0
 offset_left = 50.0
 offset_top = 1.0
