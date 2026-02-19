@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cppklg2ikstvq"
-path="res://.godot/imported/pico_improvisado_icon.png-5381a8dc00efe9ecdb4bbfd237396ca7.ctex"
+uid="uid://dnmhm0xd4ic25"
+path="res://.godot/imported/cuchillo_improvisado_icon.png-ea67e9d474b6a00cba8881021094d263.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/pico_improvisado_icon.png"
-dest_files=["res://.godot/imported/pico_improvisado_icon.png-5381a8dc00efe9ecdb4bbfd237396ca7.ctex"]
+source_file="res://assets/inventory_icons/primary/cuchillo_improvisado_icon.png"
+dest_files=["res://.godot/imported/cuchillo_improvisado_icon.png-ea67e9d474b6a00cba8881021094d263.ctex"]
 
 [params]
 

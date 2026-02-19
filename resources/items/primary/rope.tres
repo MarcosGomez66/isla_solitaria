@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b07pwbmdb3o1s"]
+
+[ext_resource type="Texture2D" uid="uid://ban01juqewkvv" path="res://assets/inventory_icons/primary/cuerda_icon.png" id="1_und2l"]
+[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="2_und2l"]
+
+[resource]
+script = ExtResource("2_und2l")
+name = "Cuerda"
+icon = ExtResource("1_und2l")
+description = "Material básico para crear objetos y estructuras improvisadas"
+type = "Material"
+stackable = true
+metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

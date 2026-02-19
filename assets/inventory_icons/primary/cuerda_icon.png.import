@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x5jsuogcndi8"
-path="res://.godot/imported/martillo_improvisado_icon.png-a80fb2de560955dd31995c2b3761fce8.ctex"
+uid="uid://ban01juqewkvv"
+path="res://.godot/imported/cuerda_icon.png-3750458d17300f3cee69d2de0e427fc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/martillo_improvisado_icon.png"
-dest_files=["res://.godot/imported/martillo_improvisado_icon.png-a80fb2de560955dd31995c2b3761fce8.ctex"]
+source_file="res://assets/inventory_icons/primary/cuerda_icon.png"
+dest_files=["res://.godot/imported/cuerda_icon.png-3750458d17300f3cee69d2de0e427fc5.ctex"]
 
 [params]
 

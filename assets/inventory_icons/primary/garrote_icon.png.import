@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b16fw248d0xer"
-path="res://.godot/imported/fibra_vegetal_icon.png-1e14e510bc4eb23957b420bfd6c60391.ctex"
+uid="uid://bmwou15jhg4yk"
+path="res://.godot/imported/garrote_icon.png-fca8c16c5a03b5e66917f056ad8a2523.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/fibra_vegetal_icon.png"
-dest_files=["res://.godot/imported/fibra_vegetal_icon.png-1e14e510bc4eb23957b420bfd6c60391.ctex"]
+source_file="res://assets/inventory_icons/primary/garrote_icon.png"
+dest_files=["res://.godot/imported/garrote_icon.png-fca8c16c5a03b5e66917f056ad8a2523.ctex"]
 
 [params]
 

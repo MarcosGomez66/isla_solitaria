@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmwou15jhg4yk"
-path="res://.godot/imported/garrote_icon.png-881dcb69a7266538e7273d5acc9b92f1.ctex"
+uid="uid://ci002rtydya8v"
+path="res://.godot/imported/madera_icon.png-38d51022c1d7956ab6bdb9831a86b890.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/garrote_icon.png"
-dest_files=["res://.godot/imported/garrote_icon.png-881dcb69a7266538e7273d5acc9b92f1.ctex"]
+source_file="res://assets/inventory_icons/resources/madera_icon.png"
+dest_files=["res://.godot/imported/madera_icon.png-38d51022c1d7956ab6bdb9831a86b890.ctex"]
 
 [params]
 

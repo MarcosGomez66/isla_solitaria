@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ban01juqewkvv"
-path="res://.godot/imported/cuerda_icon.png-9a2b9762bc084d6c46afaf129c41f7e2.ctex"
+uid="uid://cppklg2ikstvq"
+path="res://.godot/imported/pico_improvisado_icon.png-1a625a3aa97cfcf7542d12f9c93482c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/cuerda_icon.png"
-dest_files=["res://.godot/imported/cuerda_icon.png-9a2b9762bc084d6c46afaf129c41f7e2.ctex"]
+source_file="res://assets/inventory_icons/primary/pico_improvisado_icon.png"
+dest_files=["res://.godot/imported/pico_improvisado_icon.png-1a625a3aa97cfcf7542d12f9c93482c2.ctex"]
 
 [params]
 

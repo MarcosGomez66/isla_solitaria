@@ -6,9 +6,8 @@ extends Control
 @export var item_card_scene: PackedScene
 
 #variables para el crafteo
-var inventory : Array
-var entry_items = []
-#var output_item = {}
+var inventory: Array
+var entry_items: Array = []
 var max_items = 2
 var max_stack = 5
 
@@ -130,7 +129,7 @@ func add_item():
 		{
 			'name': 'Cuerda',
 			'count': 5,
-			'icon': preload("res://assets/inventory_icons/cuerda_icon.png"),
+			'icon': preload("res://assets/inventory_icons/primary/cuerda_icon.png"),
 			'description': 'Material basico para crear objetos improvisados',
 			'meta': {
 					'type': 'material',
@@ -149,7 +148,7 @@ func define_recipes():
 			'out': {
 				'name': 'Cuerda',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/cuerda_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/cuerda_icon.png"),
 				'description': 'Material basico para fabricar objetos improvisados',
 				'meta': {
 					'type': 'material',
@@ -164,7 +163,7 @@ func define_recipes():
 			'out': {
 				'name': 'Pico improvisado',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/pico_improvisado_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/pico_improvisado_icon.png"),
 				'description': 'Herramienta util para obtener minerales de peñascos',
 				'meta': {
 					'type': 'pickaxe',
@@ -179,7 +178,7 @@ func define_recipes():
 			'out': {
 				'name': 'Hacha improvisada',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/hacha_improvisada_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/hacha_improvisada_icon.png"),
 				'description': 'Herramienta util para obtener madera de los arboles comunes',
 				'meta': {
 					'type': 'axe',
@@ -194,7 +193,7 @@ func define_recipes():
 			'out': {
 				'name': 'Martillo improvisado',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/martillo_improvisado_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/martillo_improvisado_icon.png"),
 				'description': 'Herramienta util para golpear la madera o el metal',
 				'meta': {
 					'type': 'hammer',
@@ -209,7 +208,7 @@ func define_recipes():
 			'out': {
 				'name': 'Cuchillo improvisado',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/cuchillo_improvisado_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/cuchillo_improvisado_icon.png"),
 				'description': 'Herramienta util para cortar piel y cuero',
 				'meta': {
 					'type': 'knife',
@@ -224,7 +223,7 @@ func define_recipes():
 			'out': {
 				'name': 'Garrote',
 				'count': 1,
-				'icon': preload("res://assets/inventory_icons/garrote_icon.png"),
+				'icon': preload("res://assets/inventory_icons/primary/garrote_icon.png"),
 				'description': 'Arma provicional pero mejor que nada',
 				'meta': {
 					'type': 'pole',

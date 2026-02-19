@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0gvnh5hyhx2w"
-path="res://.godot/imported/piedra_icon.png-0bd788e785fc7b33d7f77c5f7e1e4f61.ctex"
+uid="uid://b16fw248d0xer"
+path="res://.godot/imported/fibra_vegetal_icon.png-4418c8d63e82136e895b4cb606c9093d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/piedra_icon.png"
-dest_files=["res://.godot/imported/piedra_icon.png-0bd788e785fc7b33d7f77c5f7e1e4f61.ctex"]
+source_file="res://assets/inventory_icons/resources/fibra_vegetal_icon.png"
+dest_files=["res://.godot/imported/fibra_vegetal_icon.png-4418c8d63e82136e895b4cb606c9093d.ctex"]
 
 [params]
 

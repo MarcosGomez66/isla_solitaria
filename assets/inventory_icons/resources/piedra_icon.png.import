@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci002rtydya8v"
-path="res://.godot/imported/madera_icon.png-c237f35df1d8fe721d88e3d28c264f8b.ctex"
+uid="uid://d0gvnh5hyhx2w"
+path="res://.godot/imported/piedra_icon.png-93f225129c6d871db25f278bde307227.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_icons/madera_icon.png"
-dest_files=["res://.godot/imported/madera_icon.png-c237f35df1d8fe721d88e3d28c264f8b.ctex"]
+source_file="res://assets/inventory_icons/resources/piedra_icon.png"
+dest_files=["res://.godot/imported/piedra_icon.png-93f225129c6d871db25f278bde307227.ctex"]
 
 [params]
 

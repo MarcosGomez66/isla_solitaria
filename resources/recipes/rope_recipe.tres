@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://bhplg0bxlfgg0"]
+
+[ext_resource type="Script" uid="uid://but1bxsgvqxnn" path="res://resources/InventoryItem.gd" id="1_0x438"]
+[ext_resource type="Script" uid="uid://bllt04i5isqqk" path="res://resources/Recipe.gd" id="2_11hlu"]
+
+[resource]
+script = ExtResource("2_11hlu")
+metadata/_custom_type_script = "uid://bllt04i5isqqk"
