@@ -1,13 +1,7 @@
 extends Area2D
 
-# datos que se van a pasar al invetario
-@export var object_name := 'Piedra'
-@export var object_icon = Texture2D
-@export var object_description = 'Recurso basico de construccion, se puede recolectar directamente del suelo o extraerlo de peñascos con un pico'
-@export var quantity = 1
-var meta = {
-	'type': 'resourse',
-}
+@export var item_data: ItemData
+@export var quantity: int
 
 func _ready():
 	connect("body_entered", _on_body_entered)

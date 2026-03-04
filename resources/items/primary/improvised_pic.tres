@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://b3ncipi7ahati"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b3ncipi7ahati"]
 
+[ext_resource type="Texture2D" uid="uid://cppklg2ikstvq" path="res://assets/inventory_icons/primary/pico_improvisado_icon.png" id="1_8xgre"]
 [ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="1_hia5y"]
 
 [resource]
 script = ExtResource("1_hia5y")
+name = "Pico improvisado"
+icon = ExtResource("1_8xgre")
+description = "Herramienta improvisada para extraer minerales de las menas"
+type = "Pic"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

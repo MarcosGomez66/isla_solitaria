@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://cxoifbup5pr3w"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cxoifbup5pr3w"]
 
 [ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="1_jcscb"]
+[ext_resource type="Texture2D" uid="uid://dqofce28tdpco" path="res://assets/inventory_icons/primary/hacha_improvisada_icon.png" id="1_l6lr0"]
 
 [resource]
 script = ExtResource("1_jcscb")
+name = "Hacha improvisada"
+icon = ExtResource("1_l6lr0")
+description = "Herramienta basica para recolectar madera de arboles comunes"
+type = "Axe"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

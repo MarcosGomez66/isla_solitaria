@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bamkdggn620d1" path="res://scenas/madera.gd" id="1_hvgfx"]
 [ext_resource type="Texture2D" uid="uid://cd7x2dnh81evs" path="res://assets/collectables_sprites/madera_sprite.png" id="1_i1bhv"]
-[ext_resource type="Texture2D" uid="uid://ci002rtydya8v" path="res://assets/inventory_icons/resources/madera_icon.png" id="2_w74pq"]
+[ext_resource type="Resource" uid="uid://cpd0xorqjg1xt" path="res://resources/items/resource/wood.tres" id="2_fxeqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvgfx"]
 size = Vector2(31, 13)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_hvgfx")
-object_icon = ExtResource("2_w74pq")
+item_data = ExtResource("2_fxeqn")
+quantity = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i1bhv")

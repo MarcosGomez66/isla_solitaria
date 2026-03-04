@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://rp0ehdok78n8"]
 
 [ext_resource type="Script" uid="uid://1wkp2atqyvh2" path="res://scenas/arbusto.gd" id="1_axn3y"]
-[ext_resource type="Texture2D" uid="uid://b16fw248d0xer" path="res://assets/inventory_icons/resources/fibra_vegetal_icon.png" id="2_axn3y"]
+[ext_resource type="Resource" uid="uid://dolejs63jiwjr" path="res://resources/items/resource/leaves.tres" id="2_axn3y"]
 [ext_resource type="Texture2D" uid="uid://i3iq7wnwqwuc" path="res://assets/collectables_sprites/arbusto_sprite.png" id="3_0qowq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvgfx"]
@@ -9,7 +9,8 @@ size = Vector2(26, 27)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_axn3y")
-object_icon = ExtResource("2_axn3y")
+item_data = ExtResource("2_axn3y")
+quantity = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_0qowq")

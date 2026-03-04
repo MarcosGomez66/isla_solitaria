@@ -1,13 +1,7 @@
 extends Area2D
 
-# datos que se van a pasar al invetario
-@export var object_name := 'Fibra vegetal'
-@export var object_icon = Texture2D #este icono es para el inventario no para el mundo
-@export var object_description = 'Recurso basico de construccion, se puede recolectar directamente del suelo'
-@export var quantity = 3
-var meta = {
-	'type': 'resourse',
-}
+@export var item_data: ItemData
+@export var quantity: int
 
 func _ready():
 	connect("body_entered", _on_body_entered)
