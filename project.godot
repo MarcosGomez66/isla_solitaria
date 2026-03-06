@@ -15,6 +15,10 @@ run/main_scene="uid://c7pneorgswetf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Inv_manager="*res://scripts/ui-ux/inventory_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920

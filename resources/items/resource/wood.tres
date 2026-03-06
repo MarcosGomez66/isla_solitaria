@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cpd0xorqjg1xt"]
 
 [ext_resource type="Texture2D" uid="uid://ci002rtydya8v" path="res://assets/inventory_icons/resources/madera_icon.png" id="1_w3n26"]
-[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="2_4004f"]
+[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://scripts/ItemData.gd" id="2_4004f"]
 
 [resource]
 script = ExtResource("2_4004f")

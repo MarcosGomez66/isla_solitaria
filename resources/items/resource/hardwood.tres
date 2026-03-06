@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://kax0ex2txvpg"]
 
-[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="1_pide6"]
+[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://scripts/ItemData.gd" id="1_pide6"]
 [ext_resource type="Texture2D" uid="uid://d3iwvigguxilr" path="res://assets/inventory_icons/resources/madera_noble_icon.png" id="1_pjimn"]
 
 [resource]

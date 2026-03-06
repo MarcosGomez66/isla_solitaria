@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://domu62ntpldsc" path="res://player/player.tscn" id="1_ht5bl"]
 [ext_resource type="Script" uid="uid://6ms04fgm8mvq" path="res://scripts_viejos/main.gd" id="1_hwycq"]
-[ext_resource type="PackedScene" uid="uid://cmt38jue01g1q" path="res://scenas/madera.tscn" id="2_l6lt2"]
-[ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenas/arbusto.tscn" id="3_o2gk4"]
-[ext_resource type="PackedScene" uid="uid://dopfqcbdgsult" path="res://scenas/piedra.tscn" id="4_hwycq"]
-[ext_resource type="PackedScene" uid="uid://c33qgcgsgi64e" path="res://main/inventory_craft.tscn" id="6_urjqf"]
+[ext_resource type="PackedScene" uid="uid://cmt38jue01g1q" path="res://scenes/world_objects/wood.tscn" id="2_l6lt2"]
+[ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenes/world_objects/bush.tscn" id="3_o2gk4"]
+[ext_resource type="PackedScene" uid="uid://dopfqcbdgsult" path="res://scenes/world_objects/stone.tscn" id="4_hwycq"]
+[ext_resource type="PackedScene" uid="uid://c33qgcgsgi64e" path="res://scenes/ui-ux/inventory_craft.tscn" id="6_urjqf"]
 
 [node name="testscene" type="Node2D"]
 script = ExtResource("1_hwycq")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cqyhkv6pjp0li"]
 
 [ext_resource type="Texture2D" uid="uid://bvdio8048jwhy" path="res://assets/inventory_icons/resources/flor_milagrosa_icon.png" id="1_dvvbf"]
-[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://resources/ItemData.gd" id="2_pej1d"]
+[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://scripts/ItemData.gd" id="2_pej1d"]
 
 [resource]
 script = ExtResource("2_pej1d")

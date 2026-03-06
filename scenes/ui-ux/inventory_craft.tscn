@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://c33qgcgsgi64e"]
 
-[ext_resource type="Script" uid="uid://bu7ahge7hqkk2" path="res://inventory_craft.gd" id="1_x3lkk"]
-[ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenas/item_card.tscn" id="2_vksan"]
-[ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv.png" id="3_vksan"]
-[ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_pgaex"]
-[ext_resource type="Texture2D" uid="uid://le2da0dwjup8" path="res://assets/inventory_backgrounds/add_icon.png" id="5_eafaq"]
-[ext_resource type="Texture2D" uid="uid://iwbosbyuid6k" path="res://assets/inventory_backgrounds/fondo_fuel_controller.png" id="5_luhk6"]
-[ext_resource type="Texture2D" uid="uid://cqrrmyejqcu05" path="res://assets/inventory_backgrounds/fondo_btn_disable.png" id="5_r3x8u"]
+[ext_resource type="Script" uid="uid://b1by256ebgm2l" path="res://scripts/ui-ux/inventory_ui.gd" id="1_ct5ip"]
+[ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenes/ui-ux/item_card.tscn" id="2_6sqgv"]
+[ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv.png" id="3_8vuug"]
+[ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_rfy0l"]
+[ext_resource type="Texture2D" uid="uid://cqrrmyejqcu05" path="res://assets/inventory_backgrounds/fondo_btn_disable.png" id="5_n3cm7"]
+[ext_resource type="Texture2D" uid="uid://le2da0dwjup8" path="res://assets/inventory_backgrounds/add_icon.png" id="6_nr2kg"]
+[ext_resource type="Texture2D" uid="uid://iwbosbyuid6k" path="res://assets/inventory_backgrounds/fondo_fuel_controller.png" id="7_dgk4c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3lkk"]
 
@@ -30,7 +30,7 @@ font_size = 6
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eafaq"]
-texture = ExtResource("5_luhk6")
+texture = ExtResource("7_dgk4c")
 
 [sub_resource type="LabelSettings" id="LabelSettings_r3x8u"]
 line_spacing = -1.0
@@ -49,8 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_x3lkk")
-item_card_scene = ExtResource("2_vksan")
+script = ExtResource("1_ct5ip")
+item_card_scene = ExtResource("2_6sqgv")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(540, 360)
@@ -72,7 +72,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_x3lkk")
 layout_mode = 0
 offset_right = 540.0
 offset_bottom = 360.0
-texture = ExtResource("3_vksan")
+texture = ExtResource("3_8vuug")
 
 [node name="InvTitle" type="Label" parent="Panel"]
 custom_minimum_size = Vector2(253, 18)
@@ -151,8 +151,8 @@ offset_left = 380.0
 offset_top = 280.0
 offset_right = 428.0
 offset_bottom = 296.0
-texture_normal = ExtResource("4_pgaex")
-texture_disabled = ExtResource("5_r3x8u")
+texture_normal = ExtResource("4_rfy0l")
+texture_disabled = ExtResource("5_n3cm7")
 
 [node name="Label" type="Label" parent="Panel/DoneButton"]
 custom_minimum_size = Vector2(48, 16)
@@ -194,7 +194,7 @@ clip_text = true
 [node name="TextureButton" type="TextureButton" parent="Panel/FuelComponent"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture_normal = ExtResource("5_eafaq")
+texture_normal = ExtResource("6_nr2kg")
 
 [node name="ToolComponent" type="VBoxContainer" parent="Panel"]
 custom_minimum_size = Vector2(48, 57)
@@ -216,7 +216,7 @@ clip_text = true
 [node name="TextureButton" type="TextureButton" parent="Panel/ToolComponent"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture_normal = ExtResource("5_eafaq")
+texture_normal = ExtResource("6_nr2kg")
 
 [node name="FuelPanel" type="Panel" parent="Panel"]
 visible = false
@@ -265,7 +265,7 @@ offset_left = 9.0
 offset_top = 157.0
 offset_right = 57.0
 offset_bottom = 173.0
-texture_normal = ExtResource("4_pgaex")
+texture_normal = ExtResource("4_rfy0l")
 
 [node name="Label" type="Label" parent="Panel/FuelPanel/AceptButton"]
 custom_minimum_size = Vector2(48, 16)
@@ -286,7 +286,7 @@ offset_left = 213.0
 offset_top = 157.0
 offset_right = 261.0
 offset_bottom = 173.0
-texture_normal = ExtResource("4_pgaex")
+texture_normal = ExtResource("4_rfy0l")
 
 [node name="Label" type="Label" parent="Panel/FuelPanel/CancelButton"]
 custom_minimum_size = Vector2(48, 16)
@@ -347,7 +347,7 @@ offset_left = 9.0
 offset_top = 157.0
 offset_right = 57.0
 offset_bottom = 173.0
-texture_normal = ExtResource("4_pgaex")
+texture_normal = ExtResource("4_rfy0l")
 
 [node name="Label" type="Label" parent="Panel/ToolPanel/AceptButton"]
 custom_minimum_size = Vector2(48, 16)
@@ -368,7 +368,7 @@ offset_left = 213.0
 offset_top = 157.0
 offset_right = 261.0
 offset_bottom = 173.0
-texture_normal = ExtResource("4_pgaex")
+texture_normal = ExtResource("4_rfy0l")
 
 [node name="Label" type="Label" parent="Panel/ToolPanel/CancelButton"]
 custom_minimum_size = Vector2(48, 16)
