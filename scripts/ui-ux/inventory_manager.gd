@@ -30,7 +30,10 @@ func add_item_to_inventory(data: ItemData, amount: int):
 		if _inventory.size() >= max_items:
 			break
 		var new_amount = min(max_stack, amount)
-		_inventory.append(Stack.new(data, new_amount))
+		var stack = Stack.new()
+		stack.item_data = data
+		stack.count = new_amount
+		_inventory.append(stack)
 		amount -= new_amount
 	inventory_changed.emit()
 
@@ -50,7 +53,11 @@ func move_one_item(data: Stack, from: Array, to: Array, max_i: int):
 			inventory_changed.emit()
 			return
 		
-	to.append(Stack.new(data.item_data, 1))
+	var stack = Stack.new()
+	stack.item_data = data.item_data
+	stack.count = 1
+		
+	to.append(stack)
 	data.count -= 1
 	if data.count <= 0:
 		from.erase(data)

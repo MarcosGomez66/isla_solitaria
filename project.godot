@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Inv_manager="*res://scripts/ui-ux/inventory_manager.gd"
+Cra_manager="*res://scripts/ui-ux/craft_manager.gd"
 
 [display]
 

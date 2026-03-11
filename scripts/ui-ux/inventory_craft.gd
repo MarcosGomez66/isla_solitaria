@@ -235,10 +235,10 @@ func define_recipes():
 		},
 	]
 
-func conectar_boton(): #hubicar mejor despues xd
+func conectar_boton(): #ubicar mejor despues xd
 	craft_button.pressed.connect(_on_craft_button_pressed)
 	
-func check_recipe():
+func check_recipe(): #1
 	current_recipe = null
 	output_item = null
 	fuel = 'missing'
@@ -260,7 +260,7 @@ func check_recipe():
 		for i in out_item_container.get_children():
 			i.queue_free()
 	
-func compare_ing(entry: Array, recipe: Array):
+func compare_ing(entry: Array, recipe: Array): #2
 	if entry.size() != recipe.size():
 		return false
 	for r in recipe:
@@ -273,13 +273,13 @@ func compare_ing(entry: Array, recipe: Array):
 			return false
 	return true
 
-func fuel_contoller():
+func fuel_contoller(): #3
 	#por el momento solo retornar el estado
 	if output_item['meta']['fuel_req'] == 'none':
 		return 'done'
 	return 'missing'
 	
-func tool_contoller():
+func tool_contoller(): #4
 	if output_item['meta']['tool_req'] == 'none':
 		return 'done'
 	return 'missing'
@@ -307,7 +307,7 @@ func craft_button_status():
 			if remaining == 0.0:
 				_on_craftTimer_timeout()
 
-func update_out_item():
+func update_out_item(): #5
 	if output_item:
 		for i in out_item_container.get_children():
 			i.queue_free()
