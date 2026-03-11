@@ -38,14 +38,14 @@ func add_item_to_inventory(data: ItemData, amount: int):
 	inventory_changed.emit()
 
 func move_to_ingredients(data: Stack):
-	move_one_item(data, _inventory, _ingredients, 100)
+	move_one_item(data, _inventory, _ingredients, 500)
 	
 func move_to_inventory(data: Stack):
 	move_one_item(data, _ingredients, _inventory, max_stack)
 
 func move_one_item(data: Stack, from: Array, to: Array, max_i: int):
 	for stack in to:
-		if stack.item_data.name == data.item_data.name and stack.count < max_i and data.item_data.stackable:
+		if stack.item_data == data.item_data and stack.count < max_i and data.item_data.stackable:
 			stack.count += 1
 			data.count -= 1
 			if data.count <= 0:

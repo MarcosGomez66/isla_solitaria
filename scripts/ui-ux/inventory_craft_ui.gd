@@ -16,6 +16,7 @@ func _ready() -> void:
 	Cra_manager.update_button.connect(done_button_status)
 	Cra_manager.start_timer.connect(start_timer)
 	done_button.pressed.connect(Cra_manager.on_done_buton_pressed)
+	craft_timer.timeout.connect(Cra_manager.on_craftTimer_out)
 
 func draw_inventory():
 	# se elimina los objetos para no duplicar
@@ -66,8 +67,6 @@ func done_button_status():
 		Cra_manager.craftState.CRAFTING:
 			var remaining = craft_timer.time_left
 			done_button_info.text = 'fabricando: %.1f s' % remaining
-			if remaining <= 0.0:
-				Cra_manager.on_craftTimer_out()
 
 func start_timer():
 	craft_timer.start(Cra_manager.craft_time)

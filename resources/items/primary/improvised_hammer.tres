@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_qae8d")
-name = "Martillo"
+name = "Martillo improvisado"
 icon = ExtResource("1_ckujx")
 description = "Herramiena improvisada para realizar trabajos que requieren golpes"
 type = "Hammer"

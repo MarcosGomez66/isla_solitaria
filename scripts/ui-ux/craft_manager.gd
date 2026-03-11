@@ -1,11 +1,9 @@
-extends Panel
+extends Node
 
 signal update_button
 signal start_timer
 
 var _current_recipe = null
-#var output_item = null
-#var current_output_item = null
 var is_crafting := false
 var craft_time := 0.0
 var fuel = 'missing'
@@ -35,32 +33,37 @@ func _process(delta: float) -> void:
 
 func load_recipes():
 	var dir = DirAccess.open("res://resources/recipes")
-	
+	if dir == null:
+		push_error('recipe folder not found')
+		
 	for file in dir.get_files():
 		if file.ends_with('.tres'):
 			#print(file)
 			var recipe = load("res://resources/recipes/" + file)
-			print(recipe.result.count)
+			print(recipe.result.item_data.name)
 			hand_recipes.append(recipe)
 			
 func check_ingredients():
 	_current_recipe = null
 	fuel = 'missing'
 	tool = 'missing'
+	var best_recipe = null
+	var best_score = -1
 	for recipe in hand_recipes:
-		var found = compare_ing(Inv_manager.get_ingredients(), recipe.ingredients)
-		if found:
-			_current_recipe = recipe.duplicate(true)
-	# manejo de combustible y herramienta
-	if _current_recipe:
+		if compare_ing(Inv_manager.get_ingredients(), recipe.ingredients):
+			var score = 0
+			for i in recipe.ingredients:
+				score += i.count
+			if score > best_score:
+				best_score = score
+				best_recipe = recipe
+	if best_recipe:
+		_current_recipe = best_recipe.duplicate(true)
 		fuel = fuel_controller()
 		tool = tool_controller()
 	update_button.emit()
 		
 func compare_ing(entry: Array[Stack], recipe: Array[Stack]) -> bool:
-	if entry.size() != recipe.size():
-		return false
-	
 	for r in recipe:
 		var found = false
 		for e in entry:
@@ -103,14 +106,16 @@ func on_done_buton_pressed():
 	craft_time = _current_recipe.craft_time
 	start_timer.emit()
 	
-	
 func consume_ingredients():
+	var to_remove = []
 	for ing in _current_recipe.ingredients:
 		for ing2 in Inv_manager.get_ingredients():
-			if ing.item_data.name == ing2.item_data.name:
+			if ing.item_data == ing2.item_data:
 				ing2.count -= ing.count
 				if ing2.count <= 0:
-					Inv_manager.get_ingredients().erase(ing2)
+					to_remove.append(ing2)
+	for r in to_remove:
+		Inv_manager.get_ingredients().erase(r)
 	
 func on_craftTimer_out():
 	is_crafting = false

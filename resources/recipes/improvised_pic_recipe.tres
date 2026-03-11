@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://but1bxsgvqxnn"
 [sub_resource type="Resource" id="Resource_33pe5"]
 script = ExtResource("1_e8ab1")
 item_data = ExtResource("4_5cdpf")
-count = 2
+count = 1
 metadata/_custom_type_script = "uid://but1bxsgvqxnn"
 
 [sub_resource type="Resource" id="Resource_v1ach"]
