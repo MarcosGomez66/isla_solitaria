@@ -27,7 +27,9 @@ func draw_inventory():
 		var card = item_card_scene.instantiate()
 		inv_container.add_child(card)
 		card.set_item(i)
-		card.move_pressed.connect(Inv_manager.move_to_ingredients)
+		card.set_mode(ItemCard.CardMode.INVENTORY)
+		card.top_pressed.connect(Inv_manager.move_to_ingredients)
+		card.middle_pressed.connect(Inv_manager.move_stack_to_ingredients)
 
 func draw_ingredients():
 	for ch in ing_container.get_children():
@@ -37,7 +39,9 @@ func draw_ingredients():
 		var card = item_card_scene.instantiate()
 		ing_container.add_child(card)
 		card.set_item(i)
-		card.move_pressed.connect(Inv_manager.move_to_inventory)
+		card.set_mode(ItemCard.CardMode.INGREDIENTS)
+		card.top_pressed.connect(Inv_manager.move_to_inventory)
+		card.middle_pressed.connect(Inv_manager.move_stack_to_inventory)
 		
 func draw_output_item():
 	for i in out_item_container.get_children():
@@ -46,6 +50,7 @@ func draw_output_item():
 		var card = item_card_scene.instantiate()
 		out_item_container.add_child(card)
 		card.set_item(Cra_manager.get_current_recipe().result)
+		card.set_mode(ItemCard.CardMode.OUT)
 	
 func done_button_status():
 	match Cra_manager.get_craft_status():

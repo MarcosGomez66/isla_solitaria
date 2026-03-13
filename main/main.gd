@@ -14,8 +14,3 @@ func _input(event):
 	
 	if event.is_action_pressed("craft"):
 		inventory_craft.visible = !inventory_craft.visible
-		
-		
-func _on_item_collected(item_data):
-	var player = $player
-	player.add_to_inventory(item_data)

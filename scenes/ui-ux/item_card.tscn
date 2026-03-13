@@ -89,51 +89,48 @@ offset_right = 251.0
 offset_bottom = 49.0
 theme_override_constants/separation = 0
 
-[node name="UseBtn" type="TextureButton" parent="Buttons"]
+[node name="TopBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
 texture_normal = ExtResource("2_rq48j")
 
-[node name="Label" type="Label" parent="Buttons/UseBtn"]
+[node name="Label" type="Label" parent="Buttons/TopBtn"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 16.0
-text = "Usar"
 label_settings = SubResource("LabelSettings_nbtwv")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="MoveBtn" type="TextureButton" parent="Buttons"]
+[node name="MiddleBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
 texture_normal = ExtResource("3_8ylvw")
 
-[node name="Label" type="Label" parent="Buttons/MoveBtn"]
+[node name="Label" type="Label" parent="Buttons/MiddleBtn"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 16.0
-text = "Mover"
 label_settings = SubResource("LabelSettings_do548")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="DelBtn" type="TextureButton" parent="Buttons"]
+[node name="BottomBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
 texture_normal = ExtResource("4_nbtwv")
 
-[node name="Label" type="Label" parent="Buttons/DelBtn"]
+[node name="Label" type="Label" parent="Buttons/BottomBtn"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 16.0
-text = "Descartar"
 label_settings = SubResource("LabelSettings_80arx")
 horizontal_alignment = 1
 vertical_alignment = 1

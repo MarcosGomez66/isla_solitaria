@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7pneorgswetf"]
 
 [ext_resource type="PackedScene" uid="uid://domu62ntpldsc" path="res://player/player.tscn" id="1_ht5bl"]
-[ext_resource type="Script" uid="uid://6ms04fgm8mvq" path="res://scripts_viejos/main.gd" id="1_hwycq"]
+[ext_resource type="Script" uid="uid://6ms04fgm8mvq" path="res://main/main.gd" id="1_hwycq"]
 [ext_resource type="PackedScene" uid="uid://cmt38jue01g1q" path="res://scenes/world_objects/wood.tscn" id="2_l6lt2"]
 [ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenes/world_objects/bush.tscn" id="3_o2gk4"]
 [ext_resource type="PackedScene" uid="uid://dopfqcbdgsult" path="res://scenes/world_objects/stone.tscn" id="4_hwycq"]
