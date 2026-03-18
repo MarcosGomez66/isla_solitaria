@@ -6,7 +6,7 @@ signal inventory_changed
 var _inventory: Array[Stack] = []
 var _ingredients: Array[Stack] = []
 var max_stack = 5
-var max_items = 3
+var max_items = 10
 
 func get_inventory():
 	return _inventory
@@ -93,5 +93,7 @@ func move_stack(data: Stack, from: Array, to: Array, max_s: int):
 		data.count -= new_count
 		if data.count <= 0:
 			from.erase(data)
-		
 	inventory_changed.emit()
+
+func update_inventory_space() -> String:
+	return '%d/%s' % [_inventory.size(), max_items]

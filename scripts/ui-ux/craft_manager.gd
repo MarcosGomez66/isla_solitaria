@@ -64,6 +64,8 @@ func check_ingredients():
 	update_button.emit()
 		
 func compare_ing(entry: Array[Stack], recipe: Array[Stack]) -> bool:
+	if entry.size() != recipe.size():
+		return false
 	for r in recipe:
 		var found = false
 		for e in entry:

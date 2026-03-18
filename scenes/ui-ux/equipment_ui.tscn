@@ -1,0 +1,202 @@
+[gd_scene load_steps=7 format=3 uid="uid://bglbt437gqsky"]
+
+[ext_resource type="Script" uid="uid://dbygflxtw7uoy" path="res://scripts/ui-ux/equipment_ui.gd" id="1_dq8p2"]
+[ext_resource type="Texture2D" uid="uid://drmqraqhbkqmf" path="res://assets/inventory_backgrounds/fondo_inv_equip.png" id="1_u4vp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebvlc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dq8p2"]
+line_spacing = -1.0
+font_size = 13
+font_color = Color(0.84705883, 0.56078434, 0.34117648, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xvfe"]
+line_spacing = -1.0
+font_size = 13
+font_color = Color(0.84705883, 0.56078434, 0.34117648, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ltd8b"]
+line_spacing = -1.0
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dq8p2")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(540, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -180.0
+offset_right = 270.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ebvlc")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_u4vp6")
+
+[node name="InvTitle" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 18)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 262.0
+offset_bottom = 24.0
+text = "I n v e n t a r i o"
+label_settings = SubResource("LabelSettings_dq8p2")
+autowrap_mode = 2
+clip_text = true
+
+[node name="InvTitle2" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 6.0
+offset_right = 530.0001
+offset_bottom = 24.0
+text = "E q u i p a m i e n t o"
+label_settings = SubResource("LabelSettings_3xvfe")
+autowrap_mode = 2
+clip_text = true
+
+[node name="SpaceLabel" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(50, 18)
+layout_mode = 0
+offset_left = 209.0
+offset_top = 10.0
+offset_right = 259.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_ltd8b")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InvScroll" type="ScrollContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 324)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 26.0
+offset_right = 263.0
+offset_bottom = 176.0
+horizontal_scroll_mode = 0
+
+[node name="InvContainer" type="VBoxContainer" parent="Panel/TextureRect/InvScroll"]
+custom_minimum_size = Vector2(253, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="Title1" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 27.0
+offset_right = 477.0
+offset_bottom = 45.0
+text = "Arma principal"
+label_settings = SubResource("LabelSettings_ltd8b")
+vertical_alignment = 2
+
+[node name="Title2" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 91.0
+offset_right = 477.0
+offset_bottom = 109.0
+text = "Armadura"
+label_settings = SubResource("LabelSettings_ltd8b")
+vertical_alignment = 2
+
+[node name="Title3" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 155.0
+offset_right = 477.0
+offset_bottom = 173.0
+text = "Mochila"
+label_settings = SubResource("LabelSettings_ltd8b")
+vertical_alignment = 2
+
+[node name="Title4" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 219.0
+offset_right = 477.0
+offset_bottom = 237.0
+text = "Equipamiento adicional 1"
+label_settings = SubResource("LabelSettings_ltd8b")
+vertical_alignment = 2
+
+[node name="Title5" type="Label" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(200, 18)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 283.0
+offset_right = 477.0
+offset_bottom = 301.0
+text = "Equipamiento adicional 2"
+label_settings = SubResource("LabelSettings_ltd8b")
+vertical_alignment = 2
+
+[node name="Space1" type="VBoxContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 50)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 44.0
+offset_right = 530.0
+offset_bottom = 94.0
+
+[node name="Space2" type="VBoxContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 50)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 108.0
+offset_right = 530.0
+offset_bottom = 158.0
+
+[node name="Space3" type="VBoxContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 50)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 172.0
+offset_right = 530.0
+offset_bottom = 222.0
+
+[node name="Space4" type="VBoxContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 50)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 236.0
+offset_right = 530.0
+offset_bottom = 286.0
+
+[node name="Space5" type="VBoxContainer" parent="Panel/TextureRect"]
+custom_minimum_size = Vector2(253, 50)
+layout_mode = 0
+offset_left = 277.0
+offset_top = 300.0
+offset_right = 530.0
+offset_bottom = 350.0

@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c33qgcgsgi64e"]
+[gd_scene load_steps=17 format=3 uid="uid://c33qgcgsgi64e"]
 
 [ext_resource type="Script" uid="uid://b1by256ebgm2l" path="res://scripts/ui-ux/inventory_craft_ui.gd" id="1_ct5ip"]
 [ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenes/ui-ux/item_card.tscn" id="2_6sqgv"]
-[ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv.png" id="3_8vuug"]
+[ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv_fab.png" id="3_8vuug"]
 [ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_rfy0l"]
 [ext_resource type="Texture2D" uid="uid://cqrrmyejqcu05" path="res://assets/inventory_backgrounds/fondo_btn_disable.png" id="5_n3cm7"]
 [ext_resource type="Texture2D" uid="uid://le2da0dwjup8" path="res://assets/inventory_backgrounds/add_icon.png" id="6_nr2kg"]
@@ -16,6 +16,11 @@ font_size = 13
 font_color = Color(0.84705883, 0.56078434, 0.34117648, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sqgv"]
+line_spacing = -1.0
+font_size = 12
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vksan"]
 line_spacing = -1.0
@@ -97,6 +102,17 @@ text = "F a b r i c a c i ó n"
 label_settings = SubResource("LabelSettings_pgaex")
 autowrap_mode = 2
 clip_text = true
+
+[node name="SpaceLabel" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(50, 18)
+layout_mode = 0
+offset_left = 209.0
+offset_top = 10.0
+offset_right = 259.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_6sqgv")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="InvScroll" type="ScrollContainer" parent="Panel"]
 custom_minimum_size = Vector2(253, 324)

@@ -8,6 +8,8 @@ extends Control
 @onready var out_item_container = $Panel/OutItem
 @onready var craft_timer = $Panel/CraftTimer
 
+@onready var inventory_space_label = $Panel/SpaceLabel
+
 @export var item_card_scene: PackedScene
 
 func _ready() -> void:
@@ -17,6 +19,8 @@ func _ready() -> void:
 	Cra_manager.start_timer.connect(start_timer)
 	done_button.pressed.connect(Cra_manager.on_done_buton_pressed)
 	craft_timer.timeout.connect(Cra_manager.on_craftTimer_out)
+	
+	redraw()
 
 func draw_inventory():
 	# se elimina los objetos para no duplicar
@@ -80,3 +84,4 @@ func redraw():
 	draw_inventory()
 	draw_ingredients()
 	draw_output_item()
+	inventory_space_label.text = Inv_manager.update_inventory_space()
