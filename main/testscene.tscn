@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7pneorgswetf"]
+
+[ext_resource type="Script" uid="uid://6ms04fgm8mvq" path="res://main/main.gd" id="1_dircn"]
+[ext_resource type="PackedScene" uid="uid://domu62ntpldsc" path="res://player/player.tscn" id="2_mhxq2"]
+[ext_resource type="PackedScene" uid="uid://cmt38jue01g1q" path="res://scenes/world_objects/wood.tscn" id="3_quypg"]
+[ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenes/world_objects/bush.tscn" id="4_lkrb7"]
+[ext_resource type="PackedScene" uid="uid://dopfqcbdgsult" path="res://scenes/world_objects/stone.tscn" id="5_h0dpr"]
+[ext_resource type="PackedScene" uid="uid://c33qgcgsgi64e" path="res://scenes/ui-ux/inventory_craft.tscn" id="6_82lcv"]
+[ext_resource type="PackedScene" uid="uid://bglbt437gqsky" path="res://scenes/ui-ux/equipment_ui.tscn" id="7_cpevb"]
+
+[node name="testscene" type="Node2D"]
+script = ExtResource("1_dircn")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_mhxq2")]
+position = Vector2(366, 256)
+
+[node name="Madera" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(440, 288)
+
+[node name="Area2D" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(304, 270)
+
+[node name="Area2D2" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(316, 184)
+
+[node name="Area2D3" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(243, 228)
+
+[node name="Area2D4" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(394, 312)
+
+[node name="Area2D5" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(338, 317)
+
+[node name="Area2D6" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(478, 252)
+
+[node name="Area2D7" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(516, 220)
+
+[node name="Area2D8" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(526, 270)
+
+[node name="Area2D9" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(454, 199)
+
+[node name="Area2D10" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(494, 174)
+
+[node name="Area2D11" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(421, 155)
+
+[node name="Area2D12" parent="." instance=ExtResource("5_h0dpr")]
+position = Vector2(372, 144)
+
+[node name="Area2D13" parent="." instance=ExtResource("3_quypg")]
+position = Vector2(307, 159)
+
+[node name="Area2D14" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(249, 179)
+
+[node name="Area2D15" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(246, 291)
+
+[node name="Area2D16" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(192, 264)
+
+[node name="Area2D17" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(179, 205)
+
+[node name="Area2D18" parent="." instance=ExtResource("4_lkrb7")]
+position = Vector2(192, 322)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryCraftUI" parent="CanvasLayer" instance=ExtResource("6_82lcv")]
+
+[node name="EquipmentUI" parent="CanvasLayer" instance=ExtResource("7_cpevb")]

@@ -8,5 +8,6 @@ script = ExtResource("1_jcscb")
 name = "Hacha improvisada"
 icon = ExtResource("1_l6lr0")
 description = "Herramienta basica para recolectar madera de arboles comunes"
-type = "Axe"
+type = "tool"
+subtype = "axe"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

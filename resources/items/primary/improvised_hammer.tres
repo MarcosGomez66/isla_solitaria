@@ -8,5 +8,6 @@ script = ExtResource("1_qae8d")
 name = "Martillo improvisado"
 icon = ExtResource("1_ckujx")
 description = "Herramiena improvisada para realizar trabajos que requieren golpes"
-type = "Hammer"
+type = "tool"
+subtype = "hammer"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

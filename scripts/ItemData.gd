@@ -5,4 +5,5 @@ class_name ItemData
 @export var icon: Texture2D
 @export var description: String
 @export var type: String
+@export var subtype: String
 @export var stackable: bool

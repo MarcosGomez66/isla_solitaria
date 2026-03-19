@@ -1,4 +1,5 @@
 extends Node
+class_name CraftManager
 
 signal update_button
 signal start_timer
@@ -38,9 +39,7 @@ func load_recipes():
 		
 	for file in dir.get_files():
 		if file.ends_with('.tres'):
-			#print(file)
 			var recipe = load("res://resources/recipes/" + file)
-			print(recipe.result.item_data.name)
 			hand_recipes.append(recipe)
 			
 func check_ingredients():

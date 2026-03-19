@@ -4,6 +4,8 @@ class_name ItemCard
 enum CardMode {
 	INVENTORY,
 	INGREDIENTS,
+	EQUIPMENT_INV,
+	EQUIPMENT,
 	STATUS,
 	FUEL,
 	TOOL,
@@ -39,6 +41,7 @@ func set_item(data: Stack):
 func set_mode(new_mode: CardMode):
 	mode = new_mode
 	match mode:
+		#en inventory_craft
 		CardMode.INVENTORY:
 			top_btn_label.text = 'Mover 1'
 			middle_btn_label.text = 'Mover todo'
@@ -47,9 +50,18 @@ func set_mode(new_mode: CardMode):
 			top_btn_label.text = 'Quitar 1'
 			middle_btn_label.text = 'Quitar todo'
 			bottom_btn_label.text = 'Eliminar'
+		#en inventory_equipment
+		CardMode.EQUIPMENT_INV:
+			top_btn_label.text = 'Equipar'
+			middle_btn_label.text = ''
+			bottom_btn_label.text = 'Eliminar'
+		CardMode.EQUIPMENT:
+			top_btn_label.text = 'Quitar'
+			middle_btn_label.text = ''
+			bottom_btn_label.text = 'Eliminar'
 		CardMode.STATUS:
 			top_btn_label.text = 'Usar'
-			middle_btn_label.text = 'Equipar'
+			middle_btn_label.text = ''
 			bottom_btn_label.text = 'Eliminar'
 		CardMode.FUEL:
 			top_btn_label.text = 'Agregar'

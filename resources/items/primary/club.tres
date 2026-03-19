@@ -8,5 +8,6 @@ script = ExtResource("1_jltdo")
 name = "Garrote"
 icon = ExtResource("1_ayw4k")
 description = "Arma improvisada para dar golpes, es mejor que nada"
-type = "Pole"
+type = "weapon"
+subtype = "pole"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

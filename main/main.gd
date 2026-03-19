@@ -1,16 +1,16 @@
 extends Node2D
 
 #@onready var pause_menu = $CanvasLayer/PauseMenu
-@onready var inventory_craft = $CanvasLayer/Control
+@onready var inventory_craft_ui = $CanvasLayer/InventoryCraftUI
+@onready var equipment_ui = $CanvasLayer/EquipmentUI
 
 func _input(event):
-	"""if event.is_action_pressed("Pause"):
-		if get_tree().paused:
-			get_tree().paused = false
-			#pause_menu.visible = false
-		else:
-			get_tree().paused = true
-			#pause_menu.visible = true"""
+	if event.is_action_pressed("open_craft"):
+		inventory_craft_ui.visible = !inventory_craft_ui.visible
+		if equipment_ui.visible:
+			equipment_ui.visible = false
 	
-	if event.is_action_pressed("craft"):
-		inventory_craft.visible = !inventory_craft.visible
+	if event.is_action_pressed('open_equipment'):
+		equipment_ui.visible = !equipment_ui.visible
+		if inventory_craft_ui.visible:
+			inventory_craft_ui.visible = false

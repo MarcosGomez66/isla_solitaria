@@ -8,5 +8,6 @@ script = ExtResource("1_hia5y")
 name = "Pico improvisado"
 icon = ExtResource("1_8xgre")
 description = "Herramienta improvisada para extraer minerales de las menas"
-type = "Pic"
+type = "tool"
+subtype = "pic"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"
