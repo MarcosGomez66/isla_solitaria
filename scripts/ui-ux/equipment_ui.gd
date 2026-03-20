@@ -21,31 +21,30 @@ func draw_inventory():
 		inv_container.add_child(card)
 		card.set_item(i)
 		card.set_mode(ItemCard.CardMode.EQUIPMENT_INV)
-		card.top_pressed.connect(Eq_manager.check_space)
-		#card.middle_pressed.connect(Eq_manager.move_stack_to_ingredients)
+		card.top_pressed.connect(Eq_manager.check_equip)
 
-func draw_spaces(container, to: Array[Stack]):
-	if to.is_empty():
-		return
+func draw_spaces(container, data: Stack):
 		
 	for ch in container.get_children():
 		ch.queue_free()
 	
-	for i in to:
-		var card = item_card_scene.instantiate()
-		container.add_child(card)
-		card.set_item(i)
-		card.set_mode(ItemCard.CardMode.EQUIPMENT)
-		card.top_pressed.connect(Eq_manager.check_quit)
+	if data == null:
+		return
+	
+	var card = item_card_scene.instantiate()
+	container.add_child(card)
+	card.set_item(data)
+	card.set_mode(ItemCard.CardMode.EQUIPMENT)
+	card.top_pressed.connect(Eq_manager.check_unequip)
 	
 func draw_main_space():
-	draw_spaces(main_space_con, Eq_manager.main_space)
+	draw_spaces(main_space_con, Eq_manager.slots['main'])
 	
 func draw_armor_space():
-	draw_spaces(armor_space_con, Eq_manager.armor)
+	draw_spaces(armor_space_con, Eq_manager.slots['armor'])
 	
 func draw_backpack_space():
-	draw_spaces(backpack_space_con, Eq_manager.backpack)
+	draw_spaces(backpack_space_con, Eq_manager.slots['backpack'])
 
 func redraw():
 	draw_inventory()
