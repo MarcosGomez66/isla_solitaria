@@ -52,26 +52,30 @@ var slots = {
 	'additional1': null,
 	'additional2': null
 }
-
-func check_equip(data: Stack):
-	equip(data, get_slot_name(data))
 		
-func equip(data: Stack, slot_name: String):
+func equip(data: Stack):
+	var slot_name = get_slot_name(data)
+	if slot_name == '' or not slots.has(slot_name):
+		return
+		
 	if slots[slot_name] != null:
-		Inv_manager.add_item_to_inventory(slots[slot_name].item_data, slots[slot_name].count)#puedo mandar 1 tambien
-		slots[slot_name] = null
-	slots[slot_name] = data.duplicate(true)
+		Inv_manager.add_item_to_inventory(slots[slot_name].item_data, slots[slot_name].count)
+	slots[slot_name] = data
 	Inv_manager.get_inventory().erase(data)
 	Inv_manager.inventory_changed.emit()
-	
-func check_unequip(data: Stack):
-	unequip(data, get_slot_name(data))
 
-func unequip(data: Stack, slot_name: String):#no hace falta la referencia del stack
-	if slots[slot_name] != null:
-		Inv_manager.add_item_to_inventory(slots[slot_name].item_data, slots[slot_name].count)#puedo mandar 1 
-		slots[slot_name] = null
-		Inv_manager.inventory_changed.emit()
+func unequip(data: Stack):
+	var slot_name = get_slot_name(data)
+	if not slots.has(slot_name):
+		return
+		
+	var item = slots[slot_name]
+	if item == null:
+		return
+		
+	Inv_manager.add_item_to_inventory(item.item_data, item.count)
+	slots[slot_name] = null
+	Inv_manager.inventory_changed.emit()
 
 func get_slot_name(data: Stack) -> String:
 	if data.item_data.type in canbein_main:

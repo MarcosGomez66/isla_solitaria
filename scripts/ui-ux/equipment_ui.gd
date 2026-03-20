@@ -21,7 +21,7 @@ func draw_inventory():
 		inv_container.add_child(card)
 		card.set_item(i)
 		card.set_mode(ItemCard.CardMode.EQUIPMENT_INV)
-		card.top_pressed.connect(Eq_manager.check_equip)
+		card.top_pressed.connect(Eq_manager.equip)
 
 func draw_spaces(container, data: Stack):
 		
@@ -35,7 +35,7 @@ func draw_spaces(container, data: Stack):
 	container.add_child(card)
 	card.set_item(data)
 	card.set_mode(ItemCard.CardMode.EQUIPMENT)
-	card.top_pressed.connect(Eq_manager.check_unequip)
+	card.top_pressed.connect(Eq_manager.unequip)
 	
 func draw_main_space():
 	draw_spaces(main_space_con, Eq_manager.slots['main'])
