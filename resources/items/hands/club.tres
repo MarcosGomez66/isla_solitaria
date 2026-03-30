@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b4gqrygtsawan"]
+
+[ext_resource type="Texture2D" uid="uid://bmwou15jhg4yk" path="res://assets/inventory_icons/hands/garrote_icon.png" id="1_ayw4k"]
+[ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://scripts/resources/ItemData.gd" id="1_jltdo"]
+
+[resource]
+script = ExtResource("1_jltdo")
+name = "Garrote"
+icon = ExtResource("1_ayw4k")
+description = "Arma improvisada para dar golpes, es mejor que nada"
+type = "weapon"
+subtype = "pole"
+metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

@@ -1,8 +1,11 @@
-extends Node2D
+extends Node
 
 #@onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var inventory_craft_ui = $CanvasLayer/InventoryCraftUI
 @onready var equipment_ui = $CanvasLayer/EquipmentUI
+
+func _ready() -> void:
+	PopupManager.container = $CanvasLayer
 
 func _input(event):
 	if event.is_action_pressed("open_craft"):

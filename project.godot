@@ -17,9 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Inv_manager="*res://scripts/ui-ux/inventory_manager.gd"
-Cra_manager="*res://scripts/ui-ux/craft_manager.gd"
-Eq_manager="*res://scripts/ui-ux/equipment_manager.gd"
+GameManager="*res://main/game_manager.gd"
+InvManager="*res://scripts/ux/inventory_manager.gd"
+CraManager="*res://scripts/ux/craft_manager.gd"
+EqManager="*res://scripts/ux/equipment_manager.gd"
+PopupManager="*res://scripts/ux/popup_manager.gd"
 
 [display]
 

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed := 200
+var sprite
+#@onready var sprite = $AnimatedSprite2D
 
 # variables para el movimiento y las animaciones
 var direction := Vector2.ZERO
@@ -8,6 +10,9 @@ var facing := "down"
 
 # variables para la interaccion con recolectables
 var nearby_object: Node = null
+
+func _ready() -> void:
+	sprite = get_node('AnimatedSprite2D')
 
 # todo lo que se realiza continuamente va en el physics process
 func _physics_process(delta):
@@ -38,8 +43,9 @@ func animation():
 		anim = 'idle_' + facing
 	else:
 		anim = 'walk_' + facing
-	if $AnimatedSprite2D.animation != anim:
-		$AnimatedSprite2D.play(anim)
+	if sprite:
+		if sprite.animation != anim:
+			sprite.play(anim)
 
 # metodos para la recoleccion de objetos
 func set_near_object(object_node):
@@ -50,7 +56,7 @@ func clear_near_object(object_node):
 		nearby_object = null
 		
 func pick_item(object_node):
-	Inv_manager.add_item_to_inventory(object_node.item_data, object_node.quantity)
+	InvManager.add_item_to_inventory(object_node.item_data, object_node.quantity)
 	nearby_object = null
 	object_node.queue_free()
 	

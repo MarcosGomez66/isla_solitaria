@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bglbt437gqsky"]
 
-[ext_resource type="Script" uid="uid://dbygflxtw7uoy" path="res://scripts/ui-ux/equipment_ui.gd" id="1_dq8p2"]
+[ext_resource type="Script" uid="uid://dbygflxtw7uoy" path="res://scripts/ui/equipment_ui.gd" id="1_dq8p2"]
 [ext_resource type="Texture2D" uid="uid://drmqraqhbkqmf" path="res://assets/inventory_backgrounds/fondo_inv_equip.png" id="1_u4vp6"]
 [ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenes/ui-ux/item_card.tscn" id="2_3xvfe"]
 

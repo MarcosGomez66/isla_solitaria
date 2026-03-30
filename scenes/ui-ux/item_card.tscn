@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dtso7rtch8qty"]
 
 [ext_resource type="Texture2D" uid="uid://cx7h38k6nuhp3" path="res://assets/inventory_backgrounds/fondo_slot.png" id="1_1r4fi"]
-[ext_resource type="Script" uid="uid://ssnjvueh4gon" path="res://scripts/ui-ux/item_card.gd" id="2_8ylvw"]
+[ext_resource type="Script" uid="uid://ssnjvueh4gon" path="res://scripts/ui/item_card.gd" id="2_8ylvw"]
 [ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="2_rq48j"]
 [ext_resource type="Texture2D" uid="uid://lq1y5iowm1uf" path="res://assets/inventory_backgrounds/fondo_btn_trabajar.png" id="3_8ylvw"]
 [ext_resource type="Texture2D" uid="uid://m76c1nyyejxg" path="res://assets/inventory_backgrounds/fondo_btn_descartar.png" id="4_nbtwv"]

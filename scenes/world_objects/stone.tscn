@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvgfx"]
 size = Vector2(22, 7)
 
-[node name="Area2D" type="Area2D"]
+[node name="Stone" type="Area2D"]
 script = ExtResource("1_e75cd")
 item_data = ExtResource("2_dxy8m")
 quantity = 1

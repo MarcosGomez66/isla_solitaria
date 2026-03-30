@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c33qgcgsgi64e"]
 
-[ext_resource type="Script" uid="uid://b1by256ebgm2l" path="res://scripts/ui-ux/inventory_craft_ui.gd" id="1_ct5ip"]
+[ext_resource type="Script" uid="uid://b1by256ebgm2l" path="res://scripts/ui/inventory_craft_ui.gd" id="1_ct5ip"]
 [ext_resource type="PackedScene" uid="uid://dtso7rtch8qty" path="res://scenes/ui-ux/item_card.tscn" id="2_6sqgv"]
 [ext_resource type="Texture2D" uid="uid://bn4fb4jb1tqol" path="res://assets/inventory_backgrounds/fondo_inv_fab.png" id="3_8vuug"]
 [ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="4_rfy0l"]
