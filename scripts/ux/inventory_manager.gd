@@ -57,29 +57,29 @@ func get_inventory():
 func get_ingredients():
 	return _ingredients
 
-func add_item_to_inventory(data: ItemData, amount: int):
-	while amount > 0:
+func add_item_to_inventory(data: Stack):
+	while data.count > 0:
 		#var stack_found = false
 		for stack in _inventory:
-			if stack.item_data == data and stack.count < max_stack and data.stackable:
+			if stack.item_data == data.item_data and stack.count < max_stack and data.item_data.stackable:
 				var space = max_stack - stack.count
-				var add = min(space, amount)
+				var add = min(space, data.count)
 				stack.count += add
-				amount -= add
+				data.count -= add
 				#stack_found = true
 				break
-		if amount <= 0:
+		if data.count <= 0:
 			break
 		if _inventory.size() >= max_items:
 			break
-		var new_amount = min(max_stack, amount)
+		var new_amount = min(max_stack, data.count)
 		var stack = Stack.new()
-		stack.item_data = data
+		stack.item_data = data.item_data
 		stack.count = new_amount
 		_inventory.append(stack)
 		#intento de mostrar el mensaje
 		#PopupManager.show_text(stack.item_data.name+' +1', Player.position)
-		amount -= new_amount
+		data.count -= new_amount
 	inventory_changed.emit()
 
 #movimientos a craft_manager

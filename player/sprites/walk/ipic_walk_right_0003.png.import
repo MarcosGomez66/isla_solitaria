@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn4fb4jb1tqol"
-path="res://.godot/imported/fondo_inv_fab.png-00960dc039e8805ba726e18e9e175481.ctex"
+uid="uid://bqmds1k32ai1w"
+path="res://.godot/imported/ipic_walk_right_0003.png-29925794f6ed80eca11059b61dff6f7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_inv_fab.png"
-dest_files=["res://.godot/imported/fondo_inv_fab.png-00960dc039e8805ba726e18e9e175481.ctex"]
+source_file="res://player/sprites/walk/ipic_walk_right_0003.png"
+dest_files=["res://.godot/imported/ipic_walk_right_0003.png-29925794f6ed80eca11059b61dff6f7e.ctex"]
 
 [params]
 

@@ -34,6 +34,10 @@ window/stretch/mode="canvas_items"
 window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+collectable=""
+
 [input]
 
 move_up={

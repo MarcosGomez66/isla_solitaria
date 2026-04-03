@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iwbosbyuid6k"
-path="res://.godot/imported/fondo_fuel_controller.png-176ed6135f939eb6564915cb81758118.ctex"
+uid="uid://by7ff065ul8qu"
+path="res://.godot/imported/inv_equip_bg.png-6d3fa81fefc0a9b2c292e8a490dbe1c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_fuel_controller.png"
-dest_files=["res://.godot/imported/fondo_fuel_controller.png-176ed6135f939eb6564915cb81758118.ctex"]
+source_file="res://assets/inventory_backgrounds/inv_equip_bg.png"
+dest_files=["res://.godot/imported/inv_equip_bg.png-6d3fa81fefc0a9b2c292e8a490dbe1c0.ctex"]
 
 [params]
 

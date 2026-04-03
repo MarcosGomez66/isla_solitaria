@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx7h38k6nuhp3"
-path="res://.godot/imported/fondo_slot.png-5f55ab3a3169c7fb799e88dfde663477.ctex"
+uid="uid://bukrw3wnu0xsb"
+path="res://.godot/imported/ipic_idle_right.png-2b972a67b70746da7e5a8e1e473f6bb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_slot.png"
-dest_files=["res://.godot/imported/fondo_slot.png-5f55ab3a3169c7fb799e88dfde663477.ctex"]
+source_file="res://player/sprites/idle/ipic_idle_right.png"
+dest_files=["res://.godot/imported/ipic_idle_right.png-2b972a67b70746da7e5a8e1e473f6bb8.ctex"]
 
 [params]
 

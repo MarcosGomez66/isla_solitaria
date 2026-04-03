@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lq1y5iowm1uf"
-path="res://.godot/imported/fondo_btn_trabajar.png-014a28fc3196331817c70f3a3f0ca97c.ctex"
+uid="uid://can5486jjy3w6"
+path="res://.godot/imported/inv_bg.png-06b00d1cb79d4680d23e473b090645e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_btn_trabajar.png"
-dest_files=["res://.godot/imported/fondo_btn_trabajar.png-014a28fc3196331817c70f3a3f0ca97c.ctex"]
+source_file="res://assets/inventory_backgrounds/inv_bg.png"
+dest_files=["res://.godot/imported/inv_bg.png-06b00d1cb79d4680d23e473b090645e8.ctex"]
 
 [params]
 

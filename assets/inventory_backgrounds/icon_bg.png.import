@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckc3557i5klrc"
-path="res://.godot/imported/fondo_inv_mano.png-d875a7cce00faf33c9ce95fc9299a9c1.ctex"
+uid="uid://d36ny48viycy5"
+path="res://.godot/imported/icon_bg.png-61d15c6362cdcdb5ccda753e5ae2295c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_inv_mano.png"
-dest_files=["res://.godot/imported/fondo_inv_mano.png-d875a7cce00faf33c9ce95fc9299a9c1.ctex"]
+source_file="res://assets/inventory_backgrounds/icon_bg.png"
+dest_files=["res://.godot/imported/icon_bg.png-61d15c6362cdcdb5ccda753e5ae2295c.ctex"]
 
 [params]
 

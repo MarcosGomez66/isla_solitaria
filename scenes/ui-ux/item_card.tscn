@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtso7rtch8qty"]
+[gd_scene load_steps=14 format=3 uid="uid://dtso7rtch8qty"]
 
-[ext_resource type="Texture2D" uid="uid://cx7h38k6nuhp3" path="res://assets/inventory_backgrounds/fondo_slot.png" id="1_1r4fi"]
+[ext_resource type="Texture2D" uid="uid://dykgcm6cvwtd4" path="res://assets/inventory_backgrounds/card_bg.png" id="2_5b5hf"]
 [ext_resource type="Script" uid="uid://ssnjvueh4gon" path="res://scripts/ui/item_card.gd" id="2_8ylvw"]
-[ext_resource type="Texture2D" uid="uid://bmmlq2u3o8e5y" path="res://assets/inventory_backgrounds/fondo_btn_usar.png" id="2_rq48j"]
-[ext_resource type="Texture2D" uid="uid://lq1y5iowm1uf" path="res://assets/inventory_backgrounds/fondo_btn_trabajar.png" id="3_8ylvw"]
-[ext_resource type="Texture2D" uid="uid://m76c1nyyejxg" path="res://assets/inventory_backgrounds/fondo_btn_descartar.png" id="4_nbtwv"]
+[ext_resource type="Texture2D" uid="uid://v537mkvm3odq" path="res://assets/inventory_backgrounds/btn_top_bg.png" id="3_aswfh"]
+[ext_resource type="Texture2D" uid="uid://0xg0bajsjnrx" path="res://assets/inventory_backgrounds/btn_disable_bg.png" id="4_vx28e"]
+[ext_resource type="Texture2D" uid="uid://dfxa2muo8xg82" path="res://assets/inventory_backgrounds/btn_middle_bg.png" id="5_p7ms2"]
+[ext_resource type="Texture2D" uid="uid://fcb3ga7d7e5t" path="res://assets/inventory_backgrounds/btn_bottom_bg.png" id="6_dqxbx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8j3gk"]
-texture = ExtResource("1_1r4fi")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8j3gk"]
 font_color = Color(0, 0, 0, 1)
@@ -40,6 +40,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_8j3gk")
 script = ExtResource("2_8ylvw")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5b5hf")
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(48, 48)
@@ -92,7 +98,8 @@ theme_override_constants/separation = 0
 [node name="TopBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
-texture_normal = ExtResource("2_rq48j")
+texture_normal = ExtResource("3_aswfh")
+texture_disabled = ExtResource("4_vx28e")
 
 [node name="Label" type="Label" parent="Buttons/TopBtn"]
 custom_minimum_size = Vector2(48, 16)
@@ -108,7 +115,8 @@ clip_text = true
 [node name="MiddleBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
-texture_normal = ExtResource("3_8ylvw")
+texture_normal = ExtResource("5_p7ms2")
+texture_disabled = ExtResource("4_vx28e")
 
 [node name="Label" type="Label" parent="Buttons/MiddleBtn"]
 custom_minimum_size = Vector2(48, 16)
@@ -124,7 +132,8 @@ clip_text = true
 [node name="BottomBtn" type="TextureButton" parent="Buttons"]
 custom_minimum_size = Vector2(48, 16)
 layout_mode = 2
-texture_normal = ExtResource("4_nbtwv")
+texture_normal = ExtResource("6_dqxbx")
+texture_disabled = ExtResource("4_vx28e")
 
 [node name="Label" type="Label" parent="Buttons/BottomBtn"]
 custom_minimum_size = Vector2(48, 16)

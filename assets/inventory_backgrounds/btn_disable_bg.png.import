@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmmlq2u3o8e5y"
-path="res://.godot/imported/fondo_btn_usar.png-8bde6333923346bbded3b6ff5891b85c.ctex"
+uid="uid://0xg0bajsjnrx"
+path="res://.godot/imported/btn_disable_bg.png-e49766765f203a6544e01e65e39b3d70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_btn_usar.png"
-dest_files=["res://.godot/imported/fondo_btn_usar.png-8bde6333923346bbded3b6ff5891b85c.ctex"]
+source_file="res://assets/inventory_backgrounds/btn_disable_bg.png"
+dest_files=["res://.godot/imported/btn_disable_bg.png-e49766765f203a6544e01e65e39b3d70.ctex"]
 
 [params]
 

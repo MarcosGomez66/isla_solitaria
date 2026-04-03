@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7pneorgswetf"]
+[gd_scene load_steps=5 format=3 uid="uid://c7pneorgswetf"]
 
 [ext_resource type="Script" uid="uid://dlvf607qkhnrx" path="res://main/main.gd" id="1_dircn"]
+[ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenes/world_objects/bush.tscn" id="2_o2gk4"]
 [ext_resource type="PackedScene" uid="uid://c33qgcgsgi64e" path="res://scenes/ui-ux/inventory_craft.tscn" id="6_82lcv"]
 [ext_resource type="PackedScene" uid="uid://bglbt437gqsky" path="res://scenes/ui-ux/equipment_ui.tscn" id="7_cpevb"]
 
@@ -9,7 +10,11 @@ script = ExtResource("1_dircn")
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="YSort" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="Bush" parent="World/YSort" instance=ExtResource("2_o2gk4")]
+position = Vector2(71, 71)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -120,7 +120,7 @@ func consume_ingredients():
 	
 func on_craftTimer_out():
 	is_crafting = false
-	InvManager.add_item_to_inventory(_current_recipe.result.item_data, _current_recipe.result.count)
+	InvManager.add_item_to_inventory(_current_recipe.result)
 	_current_recipe = null
 	check_ingredients()
 	

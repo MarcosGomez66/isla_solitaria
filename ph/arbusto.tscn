@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b33b8tbqc8e6h"]
+
+[ext_resource type="PackedScene" uid="uid://rp0ehdok78n8" path="res://scenes/world_objects/bush.tscn" id="1_sbsij"]
+
+[node name="Arbusto" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Bush" parent="." instance=ExtResource("1_sbsij")]
+position = Vector2(13, 97)

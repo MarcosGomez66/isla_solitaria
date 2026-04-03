@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqrrmyejqcu05"
-path="res://.godot/imported/fondo_btn_disable.png-effcef6465fc2bd0a6cd8af366da1d9b.ctex"
+uid="uid://y7b81un6qxja"
+path="res://.godot/imported/ipic_walk_left_0002.png-cb86da05c3b5f56632af064a75f4c010.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_btn_disable.png"
-dest_files=["res://.godot/imported/fondo_btn_disable.png-effcef6465fc2bd0a6cd8af366da1d9b.ctex"]
+source_file="res://player/sprites/walk/ipic_walk_left_0002.png"
+dest_files=["res://.godot/imported/ipic_walk_left_0002.png-cb86da05c3b5f56632af064a75f4c010.ctex"]
 
 [params]
 

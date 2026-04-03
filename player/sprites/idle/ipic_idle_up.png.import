@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m76c1nyyejxg"
-path="res://.godot/imported/fondo_btn_descartar.png-6706b7b52d68ec3b3f9742c800b5cee1.ctex"
+uid="uid://ug4rishsfhdi"
+path="res://.godot/imported/ipic_idle_up.png-c5a9117ccbefecac0344dc448f1e48ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_btn_descartar.png"
-dest_files=["res://.godot/imported/fondo_btn_descartar.png-6706b7b52d68ec3b3f9742c800b5cee1.ctex"]
+source_file="res://player/sprites/idle/ipic_idle_up.png"
+dest_files=["res://.godot/imported/ipic_idle_up.png-c5a9117ccbefecac0344dc448f1e48ab.ctex"]
 
 [params]
 

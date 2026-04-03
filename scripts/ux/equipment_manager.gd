@@ -17,7 +17,7 @@ func equip(data: Stack):
 		return
 		
 	if slots[slot_name] != null:
-		InvManager.add_item_to_inventory(slots[slot_name].item_data, slots[slot_name].count)
+		InvManager.add_item_to_inventory(slots[slot_name])
 	slots[slot_name] = data
 	InvManager.get_inventory().erase(data)
 	InvManager.inventory_changed.emit()
@@ -31,7 +31,7 @@ func unequip(data: Stack):
 	if item == null:
 		return
 		
-	InvManager.add_item_to_inventory(item.item_data, item.count)
+	InvManager.add_item_to_inventory(item)
 	slots[slot_name] = null
 	InvManager.inventory_changed.emit()
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xx48yd742bu5"
-path="res://.godot/imported/fondo_minicard.png-0ad57c05b20a6f8fa958ccd5dca7fdc4.ctex"
+uid="uid://x26byhdb0cgp"
+path="res://.godot/imported/ipic_walk_up_0003.png-44f7ea5126b46ce083559904ecb045f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory_backgrounds/fondo_minicard.png"
-dest_files=["res://.godot/imported/fondo_minicard.png-0ad57c05b20a6f8fa958ccd5dca7fdc4.ctex"]
+source_file="res://player/sprites/walk/ipic_walk_up_0003.png"
+dest_files=["res://.godot/imported/ipic_walk_up_0003.png-44f7ea5126b46ce083559904ecb045f4.ctex"]
 
 [params]
 
