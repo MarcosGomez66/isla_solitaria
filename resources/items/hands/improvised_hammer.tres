@@ -10,4 +10,5 @@ icon = ExtResource("1_ckujx")
 description = "Herramiena improvisada para realizar trabajos que requieren golpes"
 type = "tool"
 subtype = "hammer"
+anim_id = "ihamm_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

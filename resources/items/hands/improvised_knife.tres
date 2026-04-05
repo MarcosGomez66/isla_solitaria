@@ -10,4 +10,5 @@ icon = ExtResource("1_odlku")
 description = "Herramienta improvisada para realizar trabajos que requieran cortes"
 type = "tool"
 subtype = "knife"
+anim_id = "iknife_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

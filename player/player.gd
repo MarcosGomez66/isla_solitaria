@@ -6,15 +6,16 @@ extends CharacterBody2D
 
 # variables para el movimiento y las animaciones
 var direction := Vector2.ZERO
-var facing := "down"
+var facing := 'down'
+var equipped := ''
 # variables para la interaccion con recolectables
 var nearby_object: Node = null
 
 func _ready() -> void:
+	EqManager.change_equip.connect(set_equipped_text)
 	interact_area.connect('area_entered', _on_area_entered)
 	interact_area.connect('area_exited', _on_area_exited)
 
-# todo lo que se realiza continuamente va en el physics process
 func _physics_process(delta):
 	movement(delta)
 	animation()
@@ -27,7 +28,6 @@ func movement(delta):
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
-	
 	if direction.x > 0:
 		facing = 'right'
 	elif direction.x < 0:
@@ -37,12 +37,18 @@ func movement(delta):
 	elif direction.y > 0:
 		facing = 'down'
 		
+func set_equipped_text():
+	if EqManager.slots['main'] == null:
+		equipped = ''
+	else:
+		equipped = EqManager.slots['main'].item_data.anim_id
+		
 func animation():
 	var anim = ''
 	if direction == Vector2.ZERO:
-		anim = 'idle_' + facing
+		anim = equipped + 'idle_' + facing
 	else:
-		anim = 'walk_' + facing
+		anim = equipped + 'walk_' + facing
 	if sprite:
 		if sprite.animation != anim:
 			sprite.play(anim)
@@ -70,4 +76,3 @@ func pick_item(object_node):
 	InvManager.add_item_to_inventory(stack)
 	nearby_object = null
 	object_node.queue_free()
-	

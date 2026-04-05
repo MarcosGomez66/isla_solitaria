@@ -6,4 +6,5 @@ class_name ItemData
 @export var description: String
 @export var type: String
 @export var subtype: String
+@export var anim_id: String
 @export var stackable: bool

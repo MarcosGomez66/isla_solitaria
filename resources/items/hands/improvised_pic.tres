@@ -10,4 +10,5 @@ icon = ExtResource("1_8xgre")
 description = "Herramienta improvisada para extraer minerales de las menas"
 type = "tool"
 subtype = "pic"
+anim_id = "ipic_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

@@ -10,4 +10,5 @@ icon = ExtResource("1_ayw4k")
 description = "Arma improvisada para dar golpes, es mejor que nada"
 type = "weapon"
 subtype = "pole"
+anim_id = "club_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"

@@ -11,45 +11,7 @@ var max_items = 10
 var _ingredients: Array[Stack] = []
 
 func _ready() -> void:
-	items_de_prueba()
 	inventory_changed.emit()
-
-func items_de_prueba():
-	var pico = ItemData.new()
-	pico.name = 'Pico improvisado'
-	pico.icon = preload('res://assets/inventory_icons/hands/pico_improvisado_icon.png')
-	pico.description = 'Herramienta improvisada para extraer minerales de las menas'
-	pico.stackable = false
-	pico.type = 'tool'
-	pico.subtype = 'pic'
-	var stack1 = Stack.new()
-	stack1.item_data = pico
-	stack1.count = 1
-	_inventory.append(stack1)
-	
-	var mochila = ItemData.new()
-	mochila.name = 'Mochila'
-	mochila.icon = preload('res://assets/inventory_icons/place_holder_48x48.png')
-	mochila.description = 'Aumenta el espacio del inventario a 15'
-	mochila.stackable = false
-	mochila.type = 'equipment'
-	mochila.subtype = 'backpack'
-	var stack2 = Stack.new()
-	stack2.item_data = mochila
-	stack2.count = 1
-	_inventory.append(stack2)
-	
-	var prenda_cuero = ItemData.new()
-	prenda_cuero.name = 'Prenda de cuero'
-	prenda_cuero.icon = preload('res://assets/inventory_icons/place_holder_48x48.png')
-	prenda_cuero.description = 'Reduce un 20% el daño recibido'
-	prenda_cuero.stackable = false
-	prenda_cuero.type = 'equipment'
-	prenda_cuero.subtype = 'armor'
-	var stack3 = Stack.new()
-	stack3.item_data = prenda_cuero
-	stack3.count = 1
-	_inventory.append(stack3)
 
 func get_inventory():
 	return _inventory

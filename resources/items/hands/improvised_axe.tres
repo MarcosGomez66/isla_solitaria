@@ -10,4 +10,5 @@ icon = ExtResource("1_l6lr0")
 description = "Herramienta basica para recolectar madera de arboles comunes"
 type = "tool"
 subtype = "axe"
+anim_id = "iaxe_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"
