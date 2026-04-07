@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed := 200
+@export var speed := 230
 @onready var sprite = $AnimatedSprite2D
 @onready var interact_area = $InteractArea
 

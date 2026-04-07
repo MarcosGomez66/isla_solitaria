@@ -24,6 +24,7 @@ func add_item_to_inventory(data: Stack):
 		#var stack_found = false
 		for stack in _inventory:
 			if stack.item_data == data.item_data and stack.count < max_stack and data.item_data.stackable:
+				PopupManager.show_text(data.item_data.name+' +'+str(data.count), GameManager.player.global_position)
 				var space = max_stack - stack.count
 				var add = min(space, data.count)
 				stack.count += add
@@ -36,11 +37,10 @@ func add_item_to_inventory(data: Stack):
 			break
 		var new_amount = min(max_stack, data.count)
 		var stack = Stack.new()
+		PopupManager.show_text(data.item_data.name+' +'+str(data.count), GameManager.player.global_position)
 		stack.item_data = data.item_data
 		stack.count = new_amount
 		_inventory.append(stack)
-		#intento de mostrar el mensaje
-		#PopupManager.show_text(stack.item_data.name+' +1', Player.position)
 		data.count -= new_amount
 	inventory_changed.emit()
 

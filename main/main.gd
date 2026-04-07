@@ -5,7 +5,7 @@ extends Node
 @onready var equipment_ui = $CanvasLayer/EquipmentUI
 
 func _ready() -> void:
-	PopupManager.container = $CanvasLayer
+	PopupManager.container = $World
 
 func _input(event):
 	if event.is_action_pressed("open_craft"):
