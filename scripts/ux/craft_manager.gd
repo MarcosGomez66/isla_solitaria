@@ -123,4 +123,3 @@ func on_craftTimer_out():
 	InvManager.add_item_to_inventory(_current_recipe.result)
 	_current_recipe = null
 	check_ingredients()
-	

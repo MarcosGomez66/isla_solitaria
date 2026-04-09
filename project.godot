@@ -21,7 +21,8 @@ GameManager="*res://main/game_manager.gd"
 InvManager="*res://scripts/ux/inventory_manager.gd"
 CraManager="*res://scripts/ux/craft_manager.gd"
 EqManager="*res://scripts/ux/equipment_manager.gd"
-PopupManager="*res://scripts/ux/popup_manager.gd"
+InfoManager="*res://scripts/ux/info_manager.gd"
+DroppedManager="*res://scripts/ux/dropped_manager.gd"
 
 [display]
 

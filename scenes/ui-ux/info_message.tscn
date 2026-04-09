@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8xdr43m3wfsl"]
 
-[ext_resource type="Script" uid="uid://cuvxvgs34o8r1" path="res://scripts/ui/popup_message.gd" id="1_g0mha"]
+[ext_resource type="Script" uid="uid://cuvxvgs34o8r1" path="res://scripts/ui/info_message.gd" id="1_g0mha"]
 
 [node name="Control" type="Label"]
 anchors_preset = 15

@@ -73,6 +73,9 @@ func pick_item(object_node):
 	var stack = Stack.new()
 	stack.item_data = object_node.item_data
 	stack.count = object_node.amount
+	if InvManager.is_full(stack, InvManager.get_inventory(), InvManager.max_stack, InvManager.max_items):
+		InvManager.show_full_message()
+		return
 	InvManager.add_item_to_inventory(stack)
 	nearby_object = null
 	object_node.queue_free()

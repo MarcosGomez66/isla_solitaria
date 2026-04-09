@@ -14,7 +14,7 @@ size = Vector2(32, 14)
 collision_layer = 2
 script = ExtResource("1_myiev")
 item_data = ExtResource("2_ivbys")
-amount = 3
+amount = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_atsv4")
