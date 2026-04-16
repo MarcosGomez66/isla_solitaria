@@ -3,8 +3,10 @@ extends Node
 
 signal update_button
 signal start_timer
+signal crafting_signal
 
 var _current_recipe = null
+var _crafting = null
 var is_crafting := false
 var craft_time := 0.0
 var fuel = 'missing'
@@ -22,7 +24,7 @@ enum craftState {
 }
 
 func get_current_recipe():
-	return _current_recipe
+	return _crafting
 	
 func _ready() -> void:
 	load_recipes()
@@ -44,6 +46,7 @@ func load_recipes():
 			
 func check_ingredients():
 	_current_recipe = null
+	#_crafting = null
 	fuel = 'missing'
 	tool = 'missing'
 	var best_recipe = null
@@ -58,6 +61,7 @@ func check_ingredients():
 				best_recipe = recipe
 	if best_recipe:
 		_current_recipe = best_recipe.duplicate(true)
+		_crafting = _current_recipe.result.duplicate(true)
 		fuel = fuel_controller()
 		tool = tool_controller()
 	update_button.emit()
@@ -102,9 +106,12 @@ func get_craft_status():
 func on_done_buton_pressed():
 	if is_crafting:
 		return
+	crafting_signal.emit()
 	is_crafting = true
-	consume_ingredients()
+	#_crafting = _current_recipe.result.duplicate(true)
 	craft_time = _current_recipe.craft_time
+	consume_ingredients()
+	
 	start_timer.emit()
 	
 func consume_ingredients():
@@ -117,9 +124,13 @@ func consume_ingredients():
 					to_remove.append(ing2)
 	for r in to_remove:
 		InvManager.get_ingredients().erase(r)
+	InvManager.inventory_changed.emit()
 	
 func on_craftTimer_out():
+	crafting_signal.emit()
 	is_crafting = false
-	InvManager.add_item_to_inventory(_current_recipe.result)
+	InvManager.add_item_to_inventory(_crafting)
 	_current_recipe = null
+	_crafting = null
 	check_ingredients()
+	InvManager.inventory_changed.emit()

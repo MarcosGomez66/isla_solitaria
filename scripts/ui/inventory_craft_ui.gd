@@ -17,6 +17,7 @@ func _ready() -> void:
 	InvManager.inventory_changed.connect(redraw)
 	CraManager.update_button.connect(done_button_status)
 	CraManager.start_timer.connect(start_timer)
+	CraManager.crafting_signal.connect(puente)
 	done_button.pressed.connect(CraManager.on_done_buton_pressed)
 	craft_timer.timeout.connect(CraManager.on_craftTimer_out)
 	redraw()
@@ -58,7 +59,7 @@ func draw_output_item():
 	if CraManager.get_current_recipe():
 		var card = item_card_scene.instantiate()
 		out_item_container.add_child(card)
-		card.set_item(CraManager.get_current_recipe().result)
+		card.set_item(CraManager.get_current_recipe())
 		card.set_mode(ItemCard.CardMode.OUT)
 	
 func done_button_status():
@@ -89,4 +90,25 @@ func redraw():
 	draw_inventory()
 	draw_ingredients()
 	draw_output_item()
+	#disabled_buttons()
 	inventory_space_label.text = InvManager.update_inventory_space()
+
+func puente():
+	call_deferred('disabled_buttons')
+
+func disabled_buttons():
+	if CraManager.is_crafting:
+		for i in inv_container.get_children():
+			for j in i.get_node('Buttons').get_children():
+				j.disabled = true
+		for i in ing_container.get_children():
+			for j in i.get_node('Buttons').get_children():
+				j.disabled = true
+	else:
+		for i in inv_container.get_children():
+			for j in i.get_node('Buttons').get_children():
+				j.disabled = false
+		for i in ing_container.get_children():
+			for j in i.get_node('Buttons').get_children():
+				j.disabled = false
+			

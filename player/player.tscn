@@ -1,24 +1,32 @@
-[gd_scene load_steps=65 format=3 uid="uid://domu62ntpldsc"]
+[gd_scene load_steps=73 format=3 uid="uid://domu62ntpldsc"]
 
 [ext_resource type="Script" uid="uid://xeu6yl5crtr2" path="res://player/player.gd" id="1_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://hrxdyy82hn0j" path="res://player/sprites/idle/idle_down.png" id="1_yw30f"]
+[ext_resource type="Texture2D" uid="uid://b25uuktv5fcb5" path="res://player/sprites/actions/crafting_with_hands_0000.png" id="2_7l6ig"]
 [ext_resource type="Texture2D" uid="uid://cvrbm2gasboxi" path="res://player/sprites/idle/iaxe_idle_down.png" id="2_p5tca"]
 [ext_resource type="Texture2D" uid="uid://by5diik5f7cxb" path="res://player/sprites/idle/idle_left.png" id="2_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://crifwymfvdr51" path="res://player/sprites/idle/idle_right.png" id="3_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://no5iia7plgsp" path="res://player/sprites/actions/crafting_with_hands_0001.png" id="3_j3r50"]
 [ext_resource type="Texture2D" uid="uid://bactog84g3nkq" path="res://player/sprites/idle/iaxe_idle_left.png" id="3_jbx34"]
 [ext_resource type="Texture2D" uid="uid://kllksmll2k6y" path="res://player/sprites/idle/idle_up.png" id="4_boad6"]
 [ext_resource type="Texture2D" uid="uid://drxbgv1rlcndg" path="res://player/sprites/idle/iaxe_idle_right.png" id="4_s3g0c"]
+[ext_resource type="Texture2D" uid="uid://g3qt8tdpw4yh" path="res://player/sprites/actions/crafting_with_hands_0002.png" id="4_utr5e"]
 [ext_resource type="Texture2D" uid="uid://djfb4al763bxh" path="res://player/sprites/idle/iaxe_idle_up.png" id="5_35wys"]
+[ext_resource type="Texture2D" uid="uid://usfgdhuxrkm" path="res://player/sprites/actions/crafting_with_hands_0003.png" id="5_kewli"]
 [ext_resource type="Texture2D" uid="uid://cbc6rt812sol2" path="res://player/sprites/walk/walk_down_0000.png" id="5_rgyib"]
 [ext_resource type="Texture2D" uid="uid://cfgcqdktxl4o5" path="res://player/sprites/idle/ipic_idle_down.png" id="6_bjvpn"]
+[ext_resource type="Texture2D" uid="uid://cwnx7r6u7vvug" path="res://player/sprites/actions/crafting_with_hands_0004.png" id="6_do7qw"]
 [ext_resource type="Texture2D" uid="uid://wavy48ik65qc" path="res://player/sprites/walk/walk_down_0001.png" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://bb3lolocyc33c" path="res://player/sprites/walk/iaxe_walk_down0000.png" id="6_pjwc4"]
+[ext_resource type="Texture2D" uid="uid://4gxb12l8uxkw" path="res://player/sprites/actions/crafting_with_hands_0005.png" id="7_2h6tc"]
 [ext_resource type="Texture2D" uid="uid://dn2pifdkktj4w" path="res://player/sprites/walk/walk_down_0002.png" id="7_8t03j"]
 [ext_resource type="Texture2D" uid="uid://cn3xfasof8xu0" path="res://player/sprites/idle/ipic_idle_left.png" id="7_a2xo5"]
 [ext_resource type="Texture2D" uid="uid://ctxmjb2hcjwae" path="res://player/sprites/walk/iaxe_walk_down0001.png" id="7_or4qq"]
 [ext_resource type="Texture2D" uid="uid://c2vaq4tqvx3fq" path="res://player/sprites/walk/walk_down_0003.png" id="8_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://rwg2khq5ufcl" path="res://player/sprites/actions/crafting_with_hands_0006.png" id="8_8rogd"]
 [ext_resource type="Texture2D" uid="uid://bukrw3wnu0xsb" path="res://player/sprites/idle/ipic_idle_right.png" id="8_art4l"]
 [ext_resource type="Texture2D" uid="uid://dltr3knigtq5d" path="res://player/sprites/walk/iaxe_walk_down0002.png" id="8_hggc2"]
+[ext_resource type="Texture2D" uid="uid://daycqmac8fiyu" path="res://player/sprites/actions/crafting_with_hands_0007.png" id="9_48p26"]
 [ext_resource type="Texture2D" uid="uid://bj1lgew5ydnno" path="res://player/sprites/walk/walk_left_0000.png" id="9_65viv"]
 [ext_resource type="Texture2D" uid="uid://ctlgjl2tfgyse" path="res://player/sprites/walk/iaxe_walk_down0003.png" id="9_b2j0d"]
 [ext_resource type="Texture2D" uid="uid://rmto3fv4jmk6" path="res://player/sprites/walk/walk_up_0000.png" id="9_ebec5"]
@@ -64,6 +72,35 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccwxv"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7l6ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j3r50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_utr5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kewli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_do7qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2h6tc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8rogd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_48p26")
+}],
+"loop": true,
+"name": &"crafting_with_hands",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_p5tca")
@@ -378,7 +415,7 @@ script = ExtResource("1_x7c3f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ccwxv")
-animation = &"walk_up"
+animation = &"crafting_with_hands"
 offset = Vector2(0, -34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

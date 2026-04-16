@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 # variables para el movimiento y las animaciones
 var direction := Vector2.ZERO
+var anim = ''
 var facing := 'down'
 var equipped := ''
 # variables para la interaccion con recolectables
@@ -43,12 +44,20 @@ func set_equipped_text():
 	else:
 		equipped = EqManager.slots['main'].item_data.anim_id
 		
-func animation():
-	var anim = ''
-	if direction == Vector2.ZERO:
-		anim = equipped + 'idle_' + facing
+func set_crafting_text():
+	if CraManager.is_crafting:
+		anim = 'crafting_with_hands'
 	else:
-		anim = equipped + 'walk_' + facing
+		anim = ''
+	
+func animation():
+	if CraManager.is_crafting:
+		anim = 'crafting_with_hands'
+	else:
+		if direction == Vector2.ZERO:
+			anim = equipped + 'idle_' + facing
+		else:
+			anim = equipped + 'walk_' + facing
 	if sprite:
 		if sprite.animation != anim:
 			sprite.play(anim)
