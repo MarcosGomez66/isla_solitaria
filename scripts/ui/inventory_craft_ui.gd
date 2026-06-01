@@ -17,7 +17,7 @@ func _ready() -> void:
 	InvManager.inventory_changed.connect(redraw)
 	CraManager.update_button.connect(done_button_status)
 	CraManager.start_timer.connect(start_timer)
-	CraManager.crafting_signal.connect(puente)
+	CraManager.crafting_signal.connect(to_disable_buttons)
 	done_button.pressed.connect(CraManager.on_done_buton_pressed)
 	craft_timer.timeout.connect(CraManager.on_craftTimer_out)
 	redraw()
@@ -90,10 +90,9 @@ func redraw():
 	draw_inventory()
 	draw_ingredients()
 	draw_output_item()
-	#disabled_buttons()
 	inventory_space_label.text = InvManager.update_inventory_space()
 
-func puente():
+func to_disable_buttons():
 	call_deferred('disabled_buttons')
 
 func disabled_buttons():

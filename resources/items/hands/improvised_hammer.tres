@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dlr4k5kho3bc6"]
 
-[ext_resource type="Texture2D" uid="uid://x5jsuogcndi8" path="res://assets/inventory_icons/hands/martillo_improvisado_icon.png" id="1_ckujx"]
+[ext_resource type="Texture2D" uid="uid://dysrc8j8cixmu" path="res://assets/inventory_icons/hands/martillo_improvisado_icon.png" id="1_ckujx"]
 [ext_resource type="Script" uid="uid://bvqfmc8y5wmac" path="res://scripts/resources/ItemData.gd" id="1_qae8d"]
 
 [resource]
@@ -10,5 +10,5 @@ icon = ExtResource("1_ckujx")
 description = "Herramiena improvisada para realizar trabajos que requieren golpes"
 type = "tool"
 subtype = "hammer"
-anim_id = "ihamm_"
+anim_id = "ihammer_"
 metadata/_custom_type_script = "uid://bvqfmc8y5wmac"
