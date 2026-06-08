@@ -1,5 +1,5 @@
 extends Node
-#class_name CraftManager
+#class_name CraftManagerr
 
 signal update_button
 signal start_timer
@@ -24,7 +24,8 @@ enum craftState {
 }
 
 func get_current_recipe():
-	return _crafting
+	if _current_recipe:
+		return _current_recipe.result
 	
 func _ready() -> void:
 	load_recipes()
@@ -61,7 +62,7 @@ func check_ingredients():
 				best_recipe = recipe
 	if best_recipe:
 		_current_recipe = best_recipe.duplicate(true)
-		_crafting = _current_recipe.result.duplicate(true)
+		#_crafting = _current_recipe.result.duplicate(true)
 		fuel = fuel_controller()
 		tool = tool_controller()
 	update_button.emit()
@@ -108,8 +109,8 @@ func on_done_buton_pressed():
 		return
 	crafting_signal.emit()
 	is_crafting = true
-	#_crafting = _current_recipe.result.duplicate(true)
 	craft_time = _current_recipe.craft_time
+	_crafting = _current_recipe.result.duplicate()
 	consume_ingredients()
 	
 	start_timer.emit()

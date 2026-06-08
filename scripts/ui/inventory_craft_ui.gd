@@ -61,6 +61,9 @@ func draw_output_item():
 		out_item_container.add_child(card)
 		card.set_item(CraManager.get_current_recipe())
 		card.set_mode(ItemCard.CardMode.OUT)
+	else:
+		for i in out_item_container.get_children():
+			i.queue_free()
 	
 func done_button_status():
 	match CraManager.get_craft_status():
